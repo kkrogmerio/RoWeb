@@ -14,6 +14,7 @@ const mapStateToProps = state => {
     restaurantsOrder: state.restaurants.restaurantsOrder,
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     getRestaurantsMenu: () => {
@@ -25,6 +26,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 class Floor extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -173,7 +175,8 @@ class Floor extends React.Component {
     this.setState({isLoading: false});
   }
   render() {
- 
+    console.log("HEREEE")
+    console.log(this.props.restaurantsMenu.rdsajsja)
     if (
       this.props.restaurantsMenu &&
       this.props.restaurantsOrder &&
@@ -244,7 +247,7 @@ export default FloorContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Floor);
-
+// export default Floor;
 const styles = StyleSheet.create({
   fullScreen: {
     flex: 1,

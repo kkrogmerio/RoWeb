@@ -4,7 +4,7 @@
 import React from 'react';
 
 
-import FloorContainer from '../screens/Floor';
+import Floor from '../screens/Floor';
 import WaitList from '../screens/Waitlist';
 import Admin from '../screens/Admin';
 import Menu from '../screens/Menu';
@@ -14,7 +14,7 @@ import {StyleSheet, View} from 'react-native';
 import  createLeftNavigator  from '../helpers/createLeftNavigator'
 const defaultConfiguration = {
   Floor: {
-      screen: FloorContainer,
+      screen: Floor,
       icon: require('../assets/icons/floor.png'),
       adminOnly: false
   },
@@ -65,6 +65,7 @@ class AppNavigator extends React.Component {
     if (!this.Navi) {
       this.Navi = this.configureNavigator()
   }
+
     return (
       
       <View style={{ flex: 1 }}>
