@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {connect} from 'react-redux';
 import {GET_RESTAURANTS_MENU} from '../redux/restaurants';
@@ -40,6 +39,7 @@ class Floor extends React.Component {
     };
     this.timer = null;
     this.switchGroupHandler = this.switchGroupHandler.bind(this);
+    this.switchCategoryHandler = this.switchCategoryHandler.bind(this);
     this.isSelectedCategory = this.isSelectedCategory.bind(this);
     this.getCurrentTime = this.getCurrentTime.bind(this);
     this.setCurrentTime = this.setCurrentTime.bind(this);
@@ -111,6 +111,7 @@ class Floor extends React.Component {
     return categoryButtonDesign;
   }
   switchGroupHandler(groupId) {
+    console.log(this.props)
     let dishes = this.props.restaurantsMenu.dishes;
     let categories = this.props.restaurantsMenu.categories;
     console.log('Reacts');
@@ -130,13 +131,16 @@ class Floor extends React.Component {
     });
   }
   switchCategoryHandler(categoryId) {
-    let dishes = this.props.restaurantsMenu.dish;
+
+    let dishes = this.props.restaurantsMenu.dishes;
+   
     let filteredDishes = dishes.filter(ie =>
       ie.categoryIds.includes(categoryId),
     );
+    console.log(filteredDishes,"FIIISAKDSADSAMKADMDSAMASD")
     this.setState({
       selectedCategory: categoryId,
-      selectedDishes: filteredDishes,
+      currentDishes: filteredDishes,
     });
   }
   setCurrentTime(currentDate) {
@@ -169,6 +173,7 @@ class Floor extends React.Component {
     this.setState({isLoading: false});
   }
   render() {
+ 
     if (
       this.props.restaurantsMenu &&
       this.props.restaurantsOrder &&
@@ -235,7 +240,7 @@ class Floor extends React.Component {
       );
   }
 }
-export default connect(
+export default FloorContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Floor);
@@ -252,4 +257,3 @@ const styles = StyleSheet.create({
     marginHorizontal: 22.5,
   },
 });
-

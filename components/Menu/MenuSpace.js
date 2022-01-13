@@ -12,9 +12,9 @@ export default class MenuSpace extends Component {
     this.state = {
     };
   }
-
+  
   render() {
-      
+      console.log(this.props.currentDishes,"EEEEYYYY")
     return (
         <View style={{height: '100%', flex: 3.5}}>
         <Text style={styles.menuItem}>Groups</Text>
