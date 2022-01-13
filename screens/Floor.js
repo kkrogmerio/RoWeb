@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {connect} from 'react-redux';
 import {GET_RESTAURANTS_MENU} from '../redux/restaurants';
@@ -251,3 +252,4 @@ const styles = StyleSheet.create({
     marginHorizontal: 22.5,
   },
 });
+
