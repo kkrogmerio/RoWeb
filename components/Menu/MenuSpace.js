@@ -14,7 +14,9 @@ export default class MenuSpace extends Component {
   }
   
   render() {
-      console.log(this.props.currentDishes,"EEEEYYYY")
+    var arrays = [], size = 2;
+    while (this.props.currentDishes.lengthlength > 0)
+        arrays.push(this.props.currentDishes.lengthsplice(0, size));
     return (
         <View style={{height: '100%', flex: 3.5}}>
         <Text style={styles.menuItem}>Groups</Text>
@@ -47,8 +49,8 @@ export default class MenuSpace extends Component {
         <ScrollView horizontal>
           <View>
             <FlatList
-              key={this.props.currentDishes.length / 3}
-              numColumns={this.props.currentDishes.length / 3}
+              key={this.props.currentDishes.length}
+              numColumns={Math.ceil(this.props.currentDishes.length / 2)}
               data={this.props.currentDishes}
               renderItem={itemData => (<Dish dishName={itemData.item.name} dishPrice={itemData.item.price} dishImage={itemData.item.imageUrl}/>)}
                
