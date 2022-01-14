@@ -2,12 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {GET_RESTAURANTS_MENU} from '../redux/restaurants';
 import {GET_RESTAURANTS_ORDER} from '../redux/restaurants';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, View,Text} from 'react-native';
 import Header from '../components/UI/Header';
 import colors from '../constants/colors';
 import MenuSpace from '../components/Menu/MenuSpace';
 import OrderSpace from '../components/Order/OrderSpace';
 import chronometer from '../signletons/Chronometer';
+import SearchBar from '../components/UI/SearchBar';
 const mapStateToProps = state => {
   return {
     restaurantsMenu: state.restaurants.restaurantsMenu,
@@ -38,6 +39,7 @@ class Floor extends React.Component {
       currentDishes: [],
       currentItems: [],
       currentTime: [],
+      searchDishName:''
     };
     this.timer = null;
     this.switchGroupHandler = this.switchGroupHandler.bind(this);
@@ -45,7 +47,7 @@ class Floor extends React.Component {
     this.isSelectedCategory = this.isSelectedCategory.bind(this);
     this.getCurrentTime = this.getCurrentTime.bind(this);
     this.setCurrentTime = this.setCurrentTime.bind(this);
-
+    this.searchDishHandler=this.searchDishHandler.bind(this);
     this.calculatePrice = this.calculatePrice.bind(this);
     this.calculateSubTotal = this.calculateSubTotal.bind(this);
   }
@@ -90,6 +92,18 @@ class Floor extends React.Component {
         fetchedData: 1,
       });
     }
+  }
+  searchDishHandler(inputValue){
+    let dishes = this.props.restaurantsMenu.dishes;
+    console.log("DISHES=",dishes)
+    let onSelectedCategoryDishes = dishes.filter(ie =>
+      ie.categoryIds.includes(this.state.selectedCategory),
+    );
+    console.log('selected categ',this.state.selectedCategory)
+    console.log("onSelectedCategoryDishes=",onSelectedCategoryDishes)
+    const filteredSearchedDishes=onSelectedCategoryDishes.filter(ie=>ie.name.startsWith(inputValue)); 
+      console.log("filteredSearchedDishes=",filteredSearchedDishes);
+    this.setState({searchDishName:inputValue,currentDishes:filteredSearchedDishes})
   }
   shouldComponentUpdate(nextProps, nextState) {
     console.log(this.state.selectedGroup, nextState.selectedGroup);
@@ -176,7 +190,7 @@ class Floor extends React.Component {
   }
   render() {
     console.log("HEREEE")
-    console.log(this.props.restaurantsMenu.rdsajsja)
+    // console.log(this.props.restaurantsMenu.rdsajsja)
     if (
       this.props.restaurantsMenu &&
       this.props.restaurantsOrder &&
@@ -189,17 +203,13 @@ class Floor extends React.Component {
         console.log(this.state.currentTime);
         return (
           <View style={styles.fullScreen}>
-            <View
-              style={{
-                flex: 3,
-                backgroundColor: '#222',
-                flexDirection: 'row',
-                alingItems: 'center',
-              }}
-            />
+
+            
 
             <View style={{flex: 19, backgroundColor: 'white'}}>
-              <Header currentTime={this.state.currentTime} />
+              <Header currentTime={this.state.currentTime}>
+                <SearchBar searchDishHandler={this.searchDishHandler} searchDishName={this.state.searchDishName}/>
+                </Header>
               <View
                 style={{
                   height: '100%',

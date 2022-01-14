@@ -9,9 +9,10 @@ class Admin extends Component {
   }
 
   render() {
+  
     return (
-      <View>
-        <Text> Admin </Text>
+      <View >
+        <Text> Admin</Text>
       </View>
     );
   }

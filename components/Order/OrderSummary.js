@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text,TouchableOpacity,StyleSheet } from 'react-native';
 import fontStyle from '../../constants/fontStyle';
 import colors from '../../constants/colors';
+import OrderActionButton from './OrderActionButton';
 export default class OrderSummary extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,7 @@ export default class OrderSummary extends Component {
 
   render() {
     return (
-        <View style={{flex: 3, marginTop: 33}}>
+        <View style={{flex:1.9}}>
         <View style={styles.orderSeparator} />
         <View>
           <View>
@@ -41,7 +42,7 @@ export default class OrderSummary extends Component {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
               }}>
-              <View style={{flexDirection: 'row', marginBottom: 10}}>
+              <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'column-reverse'}}>
                   <Text
                     style={{
@@ -60,7 +61,7 @@ export default class OrderSummary extends Component {
                   </Text>
                 </View>
               </View>
-              <View style={{flexDirection: 'row', marginTop: 7}}>
+              <View style={{flexDirection: 'row'}}>
                 <View style={{flexDirection: 'column-reverse'}}>
                   <Text
                     style={{
@@ -88,7 +89,7 @@ export default class OrderSummary extends Component {
           style={{
             flexDirection: 'row',
             justifyContent: 'space-around',
-            marginTop: 33,
+            marginTop: 12,
           }}>
           <TouchableOpacity
             style={{
@@ -113,6 +114,8 @@ export default class OrderSummary extends Component {
             <Text style={fontStyle.fontDetailsBox}>Switch / Join Table</Text>
           </TouchableOpacity>
         </View>
+        
+              
       </View>
     );
   }
@@ -121,7 +124,7 @@ const styles = StyleSheet.create({
     orderSpecsLayout: {
         marginTop: 18,
         marginRight: 2,
-        marginBottom: 8,
+        
       },
       orderSeparator: {
         width: '100%',

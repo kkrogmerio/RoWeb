@@ -47,12 +47,12 @@ export default class LeftMenu extends React.PureComponent {
                     key={ index }
                     activeOpacity={ 1 }
                     onPress={ () => this.navigate(key) }
-                    style={{ height: 70, justifyContent: 'center', backgroundColor }}>
+                    style={{ height: 100, justifyContent: 'center', backgroundColor }}>
                     <View style={{ opacity, alignItems: 'center' }}>
                         <Image
                             source={ item.icon }
                             resizeMode={ 'contain' }
-                            style={{ width: 28, height: 28, marginTop: 5 }}/>
+                            style={{ width: 48, height: 48 }}/>
                         <Text style={ styles.menuText }>{ key }</Text>
                     </View>
                 </TouchableOpacity>

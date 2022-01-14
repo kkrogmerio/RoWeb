@@ -54,7 +54,7 @@ export default class OrderSpecs extends Component {
         </View>
         <View
           style={{
-            marginTop: 8,
+            marginTop: 4,
             flexDirection: 'row',
             justifyContent: 'space-between',
             marginLeft: 9.5,
@@ -111,7 +111,7 @@ export default class OrderSpecs extends Component {
             </Text>
           </View>
         </View>
-        <View style={{marginTop: 3, marginLeft: 9.5}}>
+        <View style={{marginLeft: 9.5}}>
           <Text
             style={{
               ...styles.orderSpecsLayout,
@@ -161,7 +161,7 @@ export default class OrderSpecs extends Component {
 }
 const styles = StyleSheet.create({
     orderSpecsLayout: {
-        marginTop: 18,
+        marginTop: 12,
         marginRight: 2,
         marginBottom: 8,
       },

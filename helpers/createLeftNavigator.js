@@ -5,8 +5,8 @@ import { TabNavigator } from 'react-navigation';
 import  LeftMenu  from '../components/UI/LeftMenu'
 
 function createLeftNavigator(routeConfigMap, stackConfig = {}) {
-    let Navigator = TabNavigator(routeConfigMap);
-
+    let Navigator = TabNavigator(routeConfigMap,stackConfig);
+    const nextBiteMenu=require('../assets/icons/icon_support_next_bite.png')
     class Menu extends React.PureComponent {
         state = {
             route: stackConfig.initialRouteName
@@ -28,16 +28,32 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
 
         render() {
             return (
-                <View style={{ height:'100%',width:100,backgroundColor:'black' }}>
+                <View style={{ height:'100%',backgroundColor:'#222',flexDirection:'row' }}>
+                    <View style={{flex:2}}>
+                        <View style={{alignItems:'center'}}>
+                    <Image
+                            source={ nextBiteMenu }
+                            resizeMode='contain'
+                            style={{ width: 60,height:60,marginBottom:5}}/> 
+                   </View>
+                     
+                        
+                        
                     <LeftMenu
                         navigate={ this.navigate }
                         menu={ routeConfigMap }
                         activeItem={ this.state.route }
                         { ...this.props }
                        />
-                    <Navigator
+                       
+                       </View>
+                      
+                       <View style={{flex:14}}>
+                     <Navigator
                         onNavigationStateChange={ this.setRoute }
                         ref={ (element) => this.navigator = element?._navigation }/>
+                        </View>
+                   
                 </View>
             )
         }

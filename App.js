@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import FloorContainer from './screens/Floor'
+import AppNavigator from './navigation/AppNavigator'
 import {Provider, connect} from 'react-redux';
 import store from './redux/configure_store';
 export default class App extends Component {
@@ -14,7 +14,7 @@ export default class App extends Component {
   render() {
     return (
         <Provider store={store}>
-        <FloorContainer/>
+        <AppNavigator/>
        </Provider>
     );
   }

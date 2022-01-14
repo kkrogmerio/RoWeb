@@ -14,7 +14,7 @@ import {StyleSheet, View} from 'react-native';
 import  createLeftNavigator  from '../helpers/createLeftNavigator'
 const defaultConfiguration = {
   Floor: {
-      screen: Floor,
+      screen: ()=><Floor/>,
       icon: require('../assets/icons/floor.png'),
       adminOnly: false
   },
@@ -56,8 +56,10 @@ class AppNavigator extends React.Component {
         
 
         return createLeftNavigator(defaultConfiguration, {
-            
-            initialRouteName: 'Admin',
+          headerMode: 'none',
+          initialRouteName: 'Floor',
+          tabBarComponent: () => { return null }
+         
             
         })
     }
@@ -68,10 +70,10 @@ class AppNavigator extends React.Component {
 
     return (
       
-      <View style={{ flex: 1 }}>
+  
       <this.Navi       />
         
-  </View>
+
      
     );
   }

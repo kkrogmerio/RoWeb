@@ -18,6 +18,8 @@ export default class Header extends Component {
             {this.props.currentTime[0]}
           </Text>
         </View>
+        
+       
         <View style={{...styles.showHour}}>
           <Text style={fontStyle.fontShowTime}>|</Text>
         </View>
@@ -26,6 +28,7 @@ export default class Header extends Component {
             {this.props.currentTime[1]}
           </Text>
         </View>
+        {this.props.children}
       </View>
     );
   }
