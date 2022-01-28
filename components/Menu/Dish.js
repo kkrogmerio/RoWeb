@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text ,StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import LinearGradient from 'react-native-linear-gradient'
 import fontStyle from '../../constants/fontStyle';
 import colors from '../../constants/colors';
 export default class Dish extends Component {
@@ -22,10 +23,16 @@ export default class Dish extends Component {
             </Text>
           </View>
           <View style={styles.dishOverlay}>
-            <Text style={fontStyle.fontDetailsBox}>
+         
+         
+          
+					<Text style={fontStyle.fontDetailsBox}>
               {this.props.dishName}
             </Text>
+			
+          
           </View>
+         
         </FastImage>
       </View>
     );
@@ -33,7 +40,7 @@ export default class Dish extends Component {
 }
 const styles = StyleSheet.create({
     dishImage: {
-        height: 125,
+        flex:4,
         marginTop: 3,
         marginRight: 25,
         marginBottom: 22.5,
@@ -51,11 +58,12 @@ const styles = StyleSheet.create({
       dishOverlay: {
         width: 150,
         height: 34,
-        marginTop: 70,
-        paddingTop: 8,
-        paddingRight: 50,
+        marginTop: 80,
+        paddingLeft:9,
+      
+     
     
-        paddingLeft: 9,
+      
         opacity: 0.8,
       },
 })

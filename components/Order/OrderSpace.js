@@ -16,7 +16,7 @@ export default class OrderSpace extends Component {
     return (
       <View style={{height: '100%', flex: 2.6}}>
        <OrderSpecs scalars={this.props.scalars}/>
-        <View style={{flex: 3.1}}>
+        <View style={{flex: 2.7}}>
           <FlatList
             data={this.props.currentItems}
             renderItem={itemData => (<OrderItem quantity={itemData.item.quantity} itemName={itemData.item.itemName} orderToppings={itemData.item.orderToppings}
@@ -31,11 +31,11 @@ export default class OrderSpace extends Component {
          <OrderSummary calculateSubTotal={this.props.calculateSubTotal}/>
          <View style={{flexDirection: 'row',
             justifyContent: 'space-around',
-            flex:1.1,
+            flex:1,
             }}>
                 
               <OrderActionButton buttonDefinition={"Confirm Order"} orderActionImage={require('../../assets/icons/icon_confirm_order.png')}/>
-              <OrderActionButton buttonDefinition={"Add Discount"} orderActionImage={require('../../assets/icons/icon_offers_active.png')}/>
+              <OrderActionButton buttonDefinition={"Add Discount"} orderActionImage={require('../../assets/icons/icon_add_discount.png')}/>
               <OrderActionButton buttonDefinition={"Issue Payment"} orderActionImage={require('../../assets/icons/icon_issue_payment.png')}/> 
               <OrderActionButton buttonDefinition={"Clear Table"} orderActionImage={require('../../assets/icons/icon_clear_table.png')}/>
               </View> 

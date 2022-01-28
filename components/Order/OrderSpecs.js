@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text,StyleSheet } from 'react-native';
+import { View, Text,StyleSheet,Image } from 'react-native';
 import fontStyle from '../../constants/fontStyle';
 export default class OrderSpecs extends Component {
   constructor(props) {
@@ -9,7 +9,8 @@ export default class OrderSpecs extends Component {
   }
 
   render() {
-      scalars=this.props.scalars;
+      const image=require('../../assets/icons/icon_device.png');
+      let scalars=this.props.scalars;
     return (
         <View>
         <View
@@ -51,6 +52,9 @@ export default class OrderSpecs extends Component {
               }}
             />
           </View>
+          <View style={{backgroundColor:'#ef4923',marginVertical:22,padding:7,borderRadius:17}}>
+            <Image source={image} resizeMode='contain' style={{width:27,height:27}}/>
+            </View>
         </View>
         <View
           style={{

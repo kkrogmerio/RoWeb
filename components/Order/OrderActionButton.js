@@ -1,39 +1,69 @@
-import React, { Component } from 'react';
-import { View, Text,Image,StyleSheet } from 'react-native';
-import colors from '../../constants/colors'
+import React, {Component} from 'react';
+import {View, Text, Image, StyleSheet} from 'react-native';
+import colors from '../../constants/colors';
 export default class OrderActionButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      buttonType: {
+        'Confirm Order': styles.confirmOrderStyle,
+        'Issue Payment': styles.issuePaymentStyle,
+        'Add Discount': styles.addDiscountStyle,
+        'Clear Table': styles.clearTableStyle,
+      },
     };
   }
 
   render() {
     return (
       <View style={{alignItems: 'center'}}>
-        <View >
-        <Image style={[this.props.buttonDefinition==='Confirm Order'&&styles.confirmOrderStyle||
-          this.props.buttonDefinition==='Issue Payment'&&styles.issuePaymentStyle,
-          styles.orderActionImage]} source={this.props.orderActionImage}/>
+        <View
+          style={[
+            this.state.buttonType[this.props.buttonDefinition],
+            styles.layoutOrderButton,
+          ]}>
+          <Image
+            style={[
+              styles.orderActionImage,
+              this.props.buttonDefinition === 'Issue Payment' && {height: 18},
+            ]}
+            source={this.props.orderActionImage}
+          />
         </View>
-       {this.props.buttonDefinition.split(" ").map(ie=><Text style={styles.orderActionButton}> {ie} </Text>)} 
+        {this.props.buttonDefinition.split(' ').map(ie => (
+          <Text style={styles.orderActionButton}> {ie} </Text>
+        ))}
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  confirmOrderStyle:{
-    backgroundColor:'#ffba00',padding:12,borderRadius:23.5
+  confirmOrderStyle: {
+    backgroundColor: '#ffba00',
+    borderRadius: 25,
   },
-  issuePaymentStyle:{
-    backgroundColor:'#ed145b'
+  addDiscountStyle: {
+    backgroundColor: '#92278f',
+    borderRadius: 25,
   },
+  layoutOrderButton: {
+    height: 50,
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  issuePaymentStyle: {
+    backgroundColor: '#ed145b',
+    borderRadius: 19,
+  },
+
   orderActionButton: {
-    color:colors.second,
-    fontSize:12.5
+    color: colors.second,
+    fontSize: 12.5,
+    marginBottom: 3,
   },
-  orderActionImage:{
-    width:42,
-    height:42
-  }
-})
+  orderActionImage: {
+    width: 24,
+    height: 24,
+  },
+});
