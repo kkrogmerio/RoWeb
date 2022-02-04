@@ -15,7 +15,7 @@ export default {
         fontSize:12.5,
         color:"#707070"
     },
-    fontPrimaryOrderSpecs:{
+    fontPrimary:{
         fontSize:22,
         color:"black"
     },

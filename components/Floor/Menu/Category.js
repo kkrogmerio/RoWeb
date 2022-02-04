@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Text ,StyleSheet,TouchableOpacity } from 'react-native';
-import fontStyle from '../../constants/fontStyle';
+import fontStyle from '../../../constants/fontStyle';
 export default class Category extends Component {
   constructor(props) {
     super(props);

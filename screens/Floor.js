@@ -5,10 +5,11 @@ import {GET_RESTAURANTS_ORDER} from '../redux/restaurants';
 import {ActivityIndicator, StyleSheet, View,Text} from 'react-native';
 import Header from '../components/UI/Header';
 import colors from '../constants/colors';
-import MenuSpace from '../components/Menu/MenuSpace';
-import OrderSpace from '../components/Order/OrderSpace';
+import MenuSpace from '../components/Floor/Menu/MenuSpace';
+import OrderSpace from '../components/Floor/Order/OrderSpace';
 import chronometer from '../signletons/Chronometer';
 import SearchBar from '../components/UI/SearchBar';
+import SectionSeparator from '../components/UI/SectionSeparator';
 const mapStateToProps = state => {
   return {
     restaurantsMenu: state.restaurants.restaurantsMenu,
@@ -207,7 +208,7 @@ class Floor extends React.Component {
             
 
             <View style={{flex: 19, backgroundColor: 'white'}}>
-              <Header currentTime={this.state.currentTime}>
+              <Header floor={1} currentTime={this.state.currentTime}>
                 <SearchBar searchDishHandler={this.searchDishHandler} searchDishName={this.state.searchDishName}/>
                 </Header>
               <View
@@ -226,7 +227,7 @@ class Floor extends React.Component {
                   switchGroupHandler={this.switchGroupHandler}
                   switchCategoryHandler={this.switchCategoryHandler}
                 />
-                <View style={styles.separatorMenuOrder} />
+                <SectionSeparator/>
                 <OrderSpace
                   currentItems={this.state.currentItems}
                   calculatePrice={this.calculatePrice}
@@ -265,8 +266,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   separatorMenuOrder: {
-    width: 0.5,
-    backgroundColor: 'black',
-    marginHorizontal: 22.5,
+    
   },
 });

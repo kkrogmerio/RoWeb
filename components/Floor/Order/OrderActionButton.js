@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import colors from '../../constants/colors';
+import colors from '../../../constants/colors';
 export default class OrderActionButton extends Component {
   constructor(props) {
     super(props);

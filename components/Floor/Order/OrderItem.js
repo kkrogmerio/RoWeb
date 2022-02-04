@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet } from 'react-native';
-import fontStyle from '../../constants/fontStyle';
+import fontStyle from '../../../constants/fontStyle';
 
 export default class OrderItem extends Component {
   constructor(props) {

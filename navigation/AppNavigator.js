@@ -13,6 +13,11 @@ import Logout from '../screens/Logout';
 import {StyleSheet, View} from 'react-native';   
 import  createLeftNavigator  from '../helpers/createLeftNavigator'
 const defaultConfiguration = {
+  Admin: {
+    screen: Admin,
+    icon: require('../assets/icons/admin.png'),
+    adminOnly: false
+  },
   Floor: {
       screen: ()=><Floor/>,
       icon: require('../assets/icons/floor.png'),
@@ -24,11 +29,7 @@ const defaultConfiguration = {
     params:{screen: Admin},
     adminOnly: false
 },
-Admin: {
-  screen: Admin,
-  icon: require('../assets/icons/admin.png'),
-  adminOnly: false
-},
+
 Menu: {
   screen: Menu,
   icon: require('../assets/icons/menu.png'),
@@ -56,8 +57,7 @@ class AppNavigator extends React.Component {
         
 
         return createLeftNavigator(defaultConfiguration, {
-          headerMode: 'none',
-          initialRouteName: 'Floor',
+        
           tabBarComponent: () => { return null }
          
             

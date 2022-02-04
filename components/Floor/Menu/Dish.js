@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View, Text ,StyleSheet } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient'
-import fontStyle from '../../constants/fontStyle';
-import colors from '../../constants/colors';
+import fontStyle from '../../../constants/fontStyle';
+import colors from '../../../constants/colors';
 export default class Dish extends Component {
   constructor(props) {
     super(props);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet,TouchableOpacity } from 'react-native';
 
-import colors from '../../constants/colors';
+import colors from '../../../constants/colors';
 import FastImage from 'react-native-fast-image';
 export default class Group extends Component {
   constructor(props) {

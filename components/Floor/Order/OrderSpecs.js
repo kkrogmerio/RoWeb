@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet,Image } from 'react-native';
-import fontStyle from '../../constants/fontStyle';
+import fontStyle from '../../../constants/fontStyle';
 export default class OrderSpecs extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +9,7 @@ export default class OrderSpecs extends Component {
   }
 
   render() {
-      const image=require('../../assets/icons/icon_device.png');
+      const image=require('../../../assets/icons/icon_device.png');
       let scalars=this.props.scalars;
     return (
         <View>
@@ -30,7 +30,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontPrimaryOrderSpecs,
+                ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}>
               {scalars.connectionCode}
@@ -47,7 +47,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontPrimaryOrderSpecs,
+                ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}
             />
@@ -74,7 +74,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontPrimaryOrderSpecs,
+                ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}>
               {scalars.serviceOrder}
@@ -91,7 +91,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontPrimaryOrderSpecs,
+                ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}>
               {scalars.partySize}
@@ -108,7 +108,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontPrimaryOrderSpecs,
+                ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}>
               {scalars.tableNumber}

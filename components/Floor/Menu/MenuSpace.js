@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,FlatList,ScrollView,StyleSheet} from 'react-native';
 
-import fontStyle from '../../constants/fontStyle';
+import fontStyle from '../../../constants/fontStyle';
 
 import  Group  from './Group';
 import  Category  from './Category';

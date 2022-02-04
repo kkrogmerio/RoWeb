@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,TouchableOpacity,StyleSheet } from 'react-native';
-import fontStyle from '../../constants/fontStyle';
-import colors from '../../constants/colors';
+import fontStyle from '../../../constants/fontStyle';
+import colors from '../../../constants/colors';
 import OrderActionButton from './OrderActionButton';
 export default class OrderSummary extends Component {
   constructor(props) {
