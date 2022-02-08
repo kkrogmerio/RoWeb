@@ -10,6 +10,7 @@ import OrderSpace from '../components/Floor/Order/OrderSpace';
 import chronometer from '../signletons/Chronometer';
 import SearchBar from '../components/UI/SearchBar';
 import SectionSeparator from '../components/UI/SectionSeparator';
+import BezierLineChart from '../components/Admin/Customers/BezierLineChart';
 const mapStateToProps = state => {
   return {
     restaurantsMenu: state.restaurants.restaurantsMenu,
@@ -32,6 +33,7 @@ class Floor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      
       isLoading: false,
       isError: false,
       selectedGroup: 0,
@@ -70,7 +72,7 @@ class Floor extends React.Component {
       let groups = newProps.restaurantsMenu.groups;
       let dishes = newProps.restaurantsMenu.dishes;
       let categories = newProps.restaurantsMenu.categories;
-      console.log('CATEGORIES= ', categories);
+
       let items = newProps.restaurantsOrder.items;
 
       let scalars = newProps.restaurantsOrder.scalars;
@@ -96,18 +98,17 @@ class Floor extends React.Component {
   }
   searchDishHandler(inputValue){
     let dishes = this.props.restaurantsMenu.dishes;
-    console.log("DISHES=",dishes)
+  
     let onSelectedCategoryDishes = dishes.filter(ie =>
       ie.categoryIds.includes(this.state.selectedCategory),
     );
-    console.log('selected categ',this.state.selectedCategory)
-    console.log("onSelectedCategoryDishes=",onSelectedCategoryDishes)
+   
     const filteredSearchedDishes=onSelectedCategoryDishes.filter(ie=>ie.name.startsWith(inputValue)); 
-      console.log("filteredSearchedDishes=",filteredSearchedDishes);
+      
     this.setState({searchDishName:inputValue,currentDishes:filteredSearchedDishes})
   }
   shouldComponentUpdate(nextProps, nextState) {
-    console.log(this.state.selectedGroup, nextState.selectedGroup);
+   
     return true;
   }
   isSelectedCategory(categoryId) {
@@ -128,10 +129,10 @@ class Floor extends React.Component {
     return categoryButtonDesign;
   }
   switchGroupHandler(groupId) {
-    console.log(this.props)
+ 
     let dishes = this.props.restaurantsMenu.dishes;
     let categories = this.props.restaurantsMenu.categories;
-    console.log('Reacts');
+
     let filteredCategories = categories.filter(ie =>
       ie.groupIds.includes(groupId),
     );
@@ -154,7 +155,7 @@ class Floor extends React.Component {
     let filteredDishes = dishes.filter(ie =>
       ie.categoryIds.includes(categoryId),
     );
-    console.log(filteredDishes,"FIIISAKDSADSAMKADMDSAMASD")
+  
     this.setState({
       selectedCategory: categoryId,
       currentDishes: filteredDishes,
@@ -190,7 +191,7 @@ class Floor extends React.Component {
     this.setState({isLoading: false});
   }
   render() {
-    console.log("HEREEE")
+   
     // console.log(this.props.restaurantsMenu.rdsajsja)
     if (
       this.props.restaurantsMenu &&
@@ -201,11 +202,11 @@ class Floor extends React.Component {
       let groups = this.props.restaurantsMenu.groups;
 
       if (this.state.fetchedData && groups && this.state.isLoading == false) {
-        console.log(this.state.currentTime);
+      
         return (
           <View style={styles.fullScreen}>
 
-            
+            <BezierLineChart/>
 
             <View style={{flex: 19, backgroundColor: 'white'}}>
               <Header floor={1} currentTime={this.state.currentTime}>

@@ -11,7 +11,7 @@ export default class Header extends Component {
   }
 
   render() {
-    console.log(this.props,'reeesdfamsfamfm')
+    
     return (
       <View style={styles.header}>
         {this.props.floor && (

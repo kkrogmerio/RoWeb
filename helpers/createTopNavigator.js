@@ -11,8 +11,7 @@ export default (createTopNavigator = (routeConfigMap, stackConfig = {}) => {
     };
 
     setRoute = (prevState, nextState) => {
-      console.log('PREVSTATE', prevState);
-      console.log('nextSTATE', nextState);
+    
       const route = nextState.routes[nextState.index].routeName;
 
       this.setState({route: route});

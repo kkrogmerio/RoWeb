@@ -1,3 +1,4 @@
+import moment from 'moment'
 class Chronometer{
     constructor(){
         if(Chronometer.instance==null){
@@ -23,6 +24,10 @@ class Chronometer{
        return currentDate;
      
       }
+      getCurrentWeekTimeline() {
+        return [...Array(7).keys()].map(ie=>moment().subtract('days', ie).format('MMM DD'))
+        
+      }
     shouldChangeTime(){
       let currentTime = new Date().toString();
       let hourTime = currentTime
@@ -32,6 +37,7 @@ class Chronometer{
       if (hourTime[2] == '00') return true;
       else return false;
     }
+    getC
 }
 const chronometer=new Chronometer();
 export default chronometer;

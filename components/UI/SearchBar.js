@@ -9,7 +9,7 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    console.log("PROPS=",this.props.searchDishName)
+
     const searchItem=require('../../assets/icons/icon_search.png');
     return (
       <View style={{marginLeft:27.5,backgroundColor:'#0e0e0e',width:225,height:31.5,borderRadius:16,color:'purple',padding:5,flexDirection:'row'}}>

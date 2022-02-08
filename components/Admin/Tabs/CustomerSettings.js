@@ -9,7 +9,7 @@ export default class CustomerSettings extends Component {
   }
 
   render() {
-    console.log("SHAFHSAHFSAOSFAAPJSFSJFAPJSPAFJSAFP")
+    
     return (
       <View>
         <Text> CustomerSettings </Text>

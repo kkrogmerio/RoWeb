@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet } from 'react-native';
 import fontStyle from '../../../constants/fontStyle';
+import BezierLineChart from './BezierLineChart'
 export default class CustomerSpace extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,7 @@ export default class CustomerSpace extends Component {
     return (
       <View style={styles.customerSpaceStyle}>
         <Text style={fontStyle.fontPrimary}> Customers </Text>
+        <BezierLineChart/>
         {/* <View style={styles.graphBoxStyle}>
             <CurveChart date={this.state.date} chartData={this.state.chartData}/>
         </View>

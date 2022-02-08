@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text ,StyleSheet} from 'react-native';
-
+import BezierLineChart from './Customers/BezierLineChart';
+import NewItem from './Customers/NewItem';
 export default class TableStatus extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +13,8 @@ export default class TableStatus extends Component {
     return (
       <View style={styles.statusScreen}>
         <Text> TableStatus </Text>
+        
+        <NewItem/>
       </View>
     );
   }

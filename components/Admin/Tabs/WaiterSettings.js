@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-
+import NewItem from '../Customers/NewItem'
 export default class WaiterSettings extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,7 @@ export default class WaiterSettings extends Component {
   render() {
     return (
       <View>
-        <Text> WaiterSettings </Text>
+       <Text></Text>
       </View>
     );
   }

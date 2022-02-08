@@ -18,7 +18,7 @@ class Admin extends Component {
     this.configureNavigator=this.configureNavigator.bind(this);
   }
   configureNavigator(){
-    return createTopNavigator({...defaultConfiguration},{initialRouteName:'CustomerSettings',
+    return createTopNavigator({...defaultConfiguration},{initialRouteName:'Evaluations',
  
   tabBarComponent: () => { return null }}) 
   }

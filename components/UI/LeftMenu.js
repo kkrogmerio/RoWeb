@@ -32,7 +32,7 @@ export default class LeftMenu extends React.PureComponent {
         
         return Object.keys(this.props.menu).map((key, index) => {
             let item = this.props.menu[key]
-            console.log(item)
+        
 
             let backgroundColor = 'transparent'
             let opacity = 0.5
