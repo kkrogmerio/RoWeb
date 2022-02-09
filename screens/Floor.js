@@ -41,15 +41,14 @@ class Floor extends React.Component {
       currentCategories: [],
       currentDishes: [],
       currentItems: [],
-      currentTime: [],
+     
       searchDishName:''
     };
-    this.timer = null;
+
     this.switchGroupHandler = this.switchGroupHandler.bind(this);
     this.switchCategoryHandler = this.switchCategoryHandler.bind(this);
     this.isSelectedCategory = this.isSelectedCategory.bind(this);
-    this.getCurrentTime = this.getCurrentTime.bind(this);
-    this.setCurrentTime = this.setCurrentTime.bind(this);
+ 
     this.searchDishHandler=this.searchDishHandler.bind(this);
     this.calculatePrice = this.calculatePrice.bind(this);
     this.calculateSubTotal = this.calculateSubTotal.bind(this);
@@ -161,24 +160,12 @@ class Floor extends React.Component {
       currentDishes: filteredDishes,
     });
   }
-  setCurrentTime(currentDate) {
-    this.setState({currentTime: currentDate});
-  }
-  
-  getCurrentTime() {
-    this.timer = setInterval(() => {
-      if(chronometer.shouldChangeTime())
-        this.setCurrentTime(chronometer.displayTime())
-      
-    }, 1000);
-  }
+ 
 
-  componentWillUnmount() {
-    if (this.timer) clearInterval(this.timer);
-  }
+
+ 
   componentDidMount() {
-    this.setCurrentTime(chronometer.displayTime());
-    this.getCurrentTime();
+  
     this.setState({isLoading: true});
     setTimeout(() => {}, 1000);
     try {
@@ -206,7 +193,7 @@ class Floor extends React.Component {
         return (
           <View style={styles.fullScreen}>
 
-            <BezierLineChart/>
+            
 
             <View style={{flex: 19, backgroundColor: 'white'}}>
               <Header floor={1} currentTime={this.state.currentTime}>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text,StyleSheet} from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import Header from '../components/UI/Header';
-import TopMenu from '../components/UI/TopMenu';
+import TopMenu from '../components/UI/DisplayTime';
 export default (createTopNavigator = (routeConfigMap, stackConfig = {}) => {
   let Navigator = TabNavigator(routeConfigMap, stackConfig);
   class Menu extends React.Component {
@@ -24,7 +24,7 @@ export default (createTopNavigator = (routeConfigMap, stackConfig = {}) => {
       return (
         <View style={styles.fullScreen}>
         <Header
-          admin={1}
+          admin
           navigate={this.navigate}
           menu={routeConfigMap}
           activeItem={this.state.route}

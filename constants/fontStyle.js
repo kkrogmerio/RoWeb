@@ -39,6 +39,10 @@ export default {
         fontSize:12.5,
         color:'#ef4349',
       
+    },
+    fontStatusTable:{
+        fontSize:17.5,
+        color:'white'
     }
 
 }
