@@ -1,12 +1,13 @@
 
 export const trafficChartDumy={
-    
+    'HourChart':[22,36,41,31,39,44,33,99],
+    'DayChart':[22,36,20,35,40,60,80,99],
+    'WeekChart':[22,22,33,11,32],
+    'MonthChart':[14,14,21,30,42,27,18,19]
 }
-export function getWeeklyTimelineDummyData(timeline){
-    
-    let randomDummyData=[];
-    timeline.forEach(ie=>randomDummyData.push(Math.floor(Math.random() * 100)))
-    return randomDummyData;
+export function getCurrentTimelineDummyData(timeline){
+ 
+    return trafficChartDumy[timeline]
 }
 export function bezierChartConfig(){
     return   {backgroundGradientFrom: "#1E2923",

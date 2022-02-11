@@ -24,8 +24,19 @@ class Chronometer{
        return currentDate;
      
       }
-      getCurrentWeekTimeline() {
-        return [...Array(7).keys()].map(ie=>moment().subtract('days', ie).format('MMM DD'))
+      getCurrentTimeline(chartType) {
+        switch(chartType) {
+          
+          case 'DayChart':
+             return [...Array(8).keys()].map(ie=>moment().subtract('days', ie).format('MMM DD,YYYY')).reverse()
+             case 'WeekChart':
+              return [...Array(5).keys()].map(ie=>moment().subtract('weeks', ie).format('MMM DD,YYYY')).reverse()
+            case 'MonthChart':
+            return [...Array(8).keys()].map(ie=>moment().subtract('months', ie).format('MMM DD,YYYY')).reverse()
+            case 'HourChart':
+             return [...Array(8).keys()].map(ie=>moment().subtract('hours', ie).format('HH DD')).reverse()
+        }
+          
         
       }
     shouldChangeTime(){

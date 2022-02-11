@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet } from 'react-native';
+import GraphBox from '../../UI/GraphBox';
 import fontStyle from '../../../constants/fontStyle';
 export default class WaiterSpace extends Component {
   constructor(props) {
@@ -12,6 +13,8 @@ export default class WaiterSpace extends Component {
     return (
       <View style={styles.waiterSpaceStyle}>
         <Text style={fontStyle.fontPrimary}> Waiters </Text>
+        <GraphBox barChart/>
+        
         {/* <View style={styles.graphBoxStyle}>
             <CurveChart date={this.state.date} chartData={this.state.chartData}/>
         </View>
