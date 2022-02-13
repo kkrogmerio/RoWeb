@@ -13,7 +13,7 @@ export default class GraphBox extends Component {
     return (
       <View style={styles.graphBoxStyle}>
    {this.props.bezierLineChart&&  <BezierLineChart title={this.props.title} subTitle={this.props.subTitle} chartTypes={this.props.chartTypes}/>}
-   {this.props.barChart&&  <BarChart/>}
+   {this.props.barChart&&  <BarChart title={this.props.title} subTitle={this.props.subTitle} chartTypes={this.props.chartTypes}/>}
    
 
      </View>

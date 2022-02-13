@@ -32,6 +32,7 @@
     "react-native-responsive-linechart": "^5.7.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-svg": "^12.1.1",
+    "react-native-svg-charts": "^5.4.0",
     "react-native-table-component": "^1.2.1",
     "react-native-tooltip": "^5.2.0",
     "react-native-tooltip-view": "^2.1.0",
