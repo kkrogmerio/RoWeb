@@ -23,7 +23,6 @@ export default class TopMenu extends Component {
     }, 1000);
   }
   componentDidMount() {
-    console.log('AOICSASSA', chronometer.displayTime());
     this.setCurrentTime(chronometer.displayTime());
     this.getCurrentTime();
   }
@@ -31,21 +30,25 @@ export default class TopMenu extends Component {
     if (this.timer) clearInterval(this.timer);
   }
   render() {
-    console.log('CURRENT TIME  ', this.currentTime);
     if (this.state.currentTime)
       return (
         <View style={{display: 'flex', flexDirection: 'row'}}>
           <View style={{...styles.showHour}}>
-            <Text style={[fontStyle.fontShowTime,{color:this.props.textColor}]}>
+            <Text
+              style={[fontStyle.fontShowTime, {color: this.props.textColor}]}>
               {this.state.currentTime[0]}
             </Text>
           </View>
 
           <View style={{...styles.showHour}}>
-            <Text style={[fontStyle.fontShowTime,{color:this.props.textColor}]}>|</Text>
+            <Text
+              style={[fontStyle.fontShowTime, {color: this.props.textColor}]}>
+              |
+            </Text>
           </View>
           <View style={styles.showDate}>
-            <Text style={[fontStyle.fontShowTime,{color:this.props.textColor}]}>
+            <Text
+              style={[fontStyle.fontShowTime, {color: this.props.textColor}]}>
               {this.state.currentTime[1]}
             </Text>
           </View>

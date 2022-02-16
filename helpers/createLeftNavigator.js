@@ -1,63 +1,63 @@
-import React from 'react'
-import { View, Text, Image } from 'react-native'
+import React from 'react';
+import {View, Text, Image} from 'react-native';
 // import { createBottomTabNavigator } from 'react-navigation'
-import { TabNavigator } from 'react-navigation';
-import  LeftMenu  from '../components/UI/LeftMenu'
+import {TabNavigator} from 'react-navigation';
+import LeftMenu from '../components/UI/LeftMenu';
 
 function createLeftNavigator(routeConfigMap, stackConfig = {}) {
-    let Navigator = TabNavigator(routeConfigMap,stackConfig);
-    const nextBiteMenu=require('../assets/icons/icon_support_next_bite.png')
-    class Menu extends React.PureComponent {
-        state = {
-            route: stackConfig.initialRouteName
-        }
+  let Navigator = TabNavigator(routeConfigMap, stackConfig);
+  const nextBiteMenu = require('../assets/icons/icon_support_next_bite.png');
+  class Menu extends React.PureComponent {
+    state = {
+      route: stackConfig.initialRouteName,
+    };
 
-        setRoute = (prevState, nextState) => {
-        
-            const route = nextState.routes[ nextState.index ].routeName
-            
-            this.setState({ route: route })
-        }
+    setRoute = (prevState, nextState) => {
+      const route = nextState.routes[nextState.index].routeName;
 
-        navigate = (route) => {
-            this.navigator.navigate(route)            
-        }
+      this.setState({route: route});
+    };
 
-       
+    navigate = route => {
+      this.navigator.navigate(route);
+    };
 
-        render() {
-            return (
-                <View style={{ height:'100%',backgroundColor:'#222',flexDirection:'row' }}>
-                    <View style={{flex:2}}>
-                        <View style={{alignItems:'center'}}>
-                    <Image
-                            source={ nextBiteMenu }
-                            resizeMode='contain'
-                            style={{ width: 60,height:60,marginBottom:5}}/> 
-                   </View>
-                     
-                        
-                        
-                    <LeftMenu
-                        navigate={ this.navigate }
-                        menu={ routeConfigMap }
-                        activeItem={ this.state.route }
-                        { ...this.props }
-                       />
-                       
-                       </View>
-                      
-                       <View style={{flex:14}}>
-                     <Navigator
-                        onNavigationStateChange={ this.setRoute }
-                        ref={ (element) => this.navigator = element?._navigation }/>
-                        </View>
-                   
-                </View>
-            )
-        }
+    render() {
+      return (
+        <View
+          style={{
+            height: '100%',
+            backgroundColor: '#222',
+            flexDirection: 'row',
+          }}>
+          <View style={{flex: 2}}>
+            <View style={{alignItems: 'center'}}>
+              <Image
+                source={nextBiteMenu}
+                resizeMode="contain"
+                style={{width: 60, height: 60, marginBottom: 5}}
+              />
+            </View>
+
+            <LeftMenu
+              navigate={this.navigate}
+              menu={routeConfigMap}
+              activeItem={this.state.route}
+              {...this.props}
+            />
+          </View>
+
+          <View style={{flex: 14}}>
+            <Navigator
+              onNavigationStateChange={this.setRoute}
+              ref={element => (this.navigator = element?._navigation)}
+            />
+          </View>
+        </View>
+      );
     }
+  }
 
-    return Menu
+  return Menu;
 }
-export default createLeftNavigator
+export default createLeftNavigator;

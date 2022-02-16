@@ -1,48 +1,48 @@
 export default {
-    fontDetails:{
-        fontSize:12.5,
-        color:"#707070"
-    },
-    fontDetailsBox:{
-        fontSize:12.5,
-        color:"#ffffff"
-    },
-    fontShowTime:{
-        fontSize:15,
-        color:"#ffffff"
-    },
-    fontOrderSpecifications:{
-        fontSize:12.5,
-        color:"#707070"
-    },
-    fontPrimary:{
-        fontSize:22,
-        color:"black"
-    },
-    fontOrderName:{
-        color:"black",
-        fontSize:17.5
-    },
-    fontOrderPrice:{
-        color:"black",
-        fontSize:17.5
-    },
-    fontOrderSpecs:{
-        fontSize:10,
-        color:"#707070"
-    },
-    fontOrderDetails:{
-        fontSize:10,
-        color:'black'
-    },
-    fontDiscountItem:{
-        fontSize:12.5,
-        color:'#ef4349',
-      
-    },
-    fontStatusTable:{
-        fontSize:17.5,
-        color:'white'
-    }
-
-}
+  fontDetails: {
+    fontSize: 12.5,
+    color: '#707070',
+  },
+  fontChartDate: {color: '#a8a8a8', fontSize: 10},
+  fontChartData: {color: '#fff', fontSize: 14},
+  fontDetailsBox: {
+    fontSize: 12.5,
+    color: '#ffffff',
+  },
+  fontShowTime: {
+    fontSize: 15,
+    color: '#ffffff',
+  },
+  fontOrderSpecifications: {
+    fontSize: 12.5,
+    color: '#707070',
+  },
+  fontPrimary: {
+    fontSize: 22,
+    color: 'black',
+  },
+  fontOrderName: {
+    color: 'black',
+    fontSize: 17.5,
+  },
+  fontOrderPrice: {
+    color: 'black',
+    fontSize: 17.5,
+  },
+  fontOrderSpecs: {
+    fontSize: 10,
+    color: '#707070',
+  },
+  fontOrderDetails: {
+    fontSize: 10,
+    color: 'black',
+  },
+  fontDiscountItem: {
+    fontSize: 12.5,
+    color: '#ef4349',
+  },
+  fontStatusTable: {
+    fontSize: 17.5,
+    color: 'white',
+  },
+};

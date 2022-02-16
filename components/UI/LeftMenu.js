@@ -60,52 +60,6 @@ export default class LeftMenu extends React.PureComponent {
         })
     }
 
-    // renderBranchLogo() {
-    //     if (!this.props.branchLogo) {
-    //         return null
-    //     }
-    //     return (
-    //         <FastImage
-	// 			style={ styles.logo }
-	// 			resizeMode={ FastImage.resizeMode.contain }
-	// 			source={{ uri: this.props.branchLogo }}/>
-    //     )
-    // }
-
-    // render() {
-    //     return (
-    //         <View style={[ styles.container, this.props.style ]}>
-    //             { this.renderBranchLogo() }
-    //             <View style={{ width: '100%', marginTop: 10 }}>
-    //                 { this.renderMenu() }
-    //             </View>
-    //             <View style={ styles.connectionContainer }>
-    //                 <TouchableOpacity
-    //                     activeOpacity={ 0.9 }
-    //                     onPress={ this.onPressRefreshFloor }
-    //                     style={ styles.offlineButton }>
-    //                     <Image
-    //                         source={ iconRefresh }
-    //                         style={ styles.offlineIcon }/>
-    //                 </TouchableOpacity>
-    //                 <TouchableOpacity
-    //                     activeOpacity={ 0.9 }
-    //                     style={ styles.offlineButton }
-    //                     onPress={ this.onPressOfflineCode }>
-    //                     <Image
-    //                         source={ iconOfflineCode }
-    //                         style={ styles.offlineIcon }/>
-    //                 </TouchableOpacity>
-    //                 <Image
-    //                     resizeMode="contain"
-    //                     style={ styles.connectionStatus }
-    //                     source={ this.props.isOnline ? iconOnlineNextBite : iconOfflineNextBite } />
-                  
-                 
-    //             </View>
-    //         </View>
-    //     )
-    // }
 }
 
 const styles = StyleSheet.create({

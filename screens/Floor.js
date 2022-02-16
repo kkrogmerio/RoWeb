@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {GET_RESTAURANTS_MENU} from '../redux/restaurants';
 import {GET_RESTAURANTS_ORDER} from '../redux/restaurants';
-import {ActivityIndicator, StyleSheet, View,Text} from 'react-native';
+import {ActivityIndicator, StyleSheet, View, Text} from 'react-native';
 import Header from '../components/UI/Header';
 import colors from '../constants/colors';
 import MenuSpace from '../components/Floor/Menu/MenuSpace';
@@ -29,11 +29,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 class Floor extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
-      
       isLoading: false,
       isError: false,
       selectedGroup: 0,
@@ -41,15 +39,15 @@ class Floor extends React.Component {
       currentCategories: [],
       currentDishes: [],
       currentItems: [],
-     
-      searchDishName:''
+
+      searchDishName: '',
     };
 
     this.switchGroupHandler = this.switchGroupHandler.bind(this);
     this.switchCategoryHandler = this.switchCategoryHandler.bind(this);
     this.isSelectedCategory = this.isSelectedCategory.bind(this);
- 
-    this.searchDishHandler=this.searchDishHandler.bind(this);
+
+    this.searchDishHandler = this.searchDishHandler.bind(this);
     this.calculatePrice = this.calculatePrice.bind(this);
     this.calculateSubTotal = this.calculateSubTotal.bind(this);
   }
@@ -95,19 +93,23 @@ class Floor extends React.Component {
       });
     }
   }
-  searchDishHandler(inputValue){
+  searchDishHandler(inputValue) {
     let dishes = this.props.restaurantsMenu.dishes;
-  
+
     let onSelectedCategoryDishes = dishes.filter(ie =>
       ie.categoryIds.includes(this.state.selectedCategory),
     );
-   
-    const filteredSearchedDishes=onSelectedCategoryDishes.filter(ie=>ie.name.startsWith(inputValue)); 
-      
-    this.setState({searchDishName:inputValue,currentDishes:filteredSearchedDishes})
+
+    const filteredSearchedDishes = onSelectedCategoryDishes.filter(ie =>
+      ie.name.startsWith(inputValue),
+    );
+
+    this.setState({
+      searchDishName: inputValue,
+      currentDishes: filteredSearchedDishes,
+    });
   }
   shouldComponentUpdate(nextProps, nextState) {
-   
     return true;
   }
   isSelectedCategory(categoryId) {
@@ -128,7 +130,6 @@ class Floor extends React.Component {
     return categoryButtonDesign;
   }
   switchGroupHandler(groupId) {
- 
     let dishes = this.props.restaurantsMenu.dishes;
     let categories = this.props.restaurantsMenu.categories;
 
@@ -148,24 +149,19 @@ class Floor extends React.Component {
     });
   }
   switchCategoryHandler(categoryId) {
-
     let dishes = this.props.restaurantsMenu.dishes;
-   
+
     let filteredDishes = dishes.filter(ie =>
       ie.categoryIds.includes(categoryId),
     );
-  
+
     this.setState({
       selectedCategory: categoryId,
       currentDishes: filteredDishes,
     });
   }
- 
 
-
- 
   componentDidMount() {
-  
     this.setState({isLoading: true});
     setTimeout(() => {}, 1000);
     try {
@@ -178,8 +174,6 @@ class Floor extends React.Component {
     this.setState({isLoading: false});
   }
   render() {
-   
-    // console.log(this.props.restaurantsMenu.rdsajsja)
     if (
       this.props.restaurantsMenu &&
       this.props.restaurantsOrder &&
@@ -189,16 +183,15 @@ class Floor extends React.Component {
       let groups = this.props.restaurantsMenu.groups;
 
       if (this.state.fetchedData && groups && this.state.isLoading == false) {
-      
         return (
           <View style={styles.fullScreen}>
-
-            
-
             <View style={{flex: 19, backgroundColor: 'white'}}>
               <Header floor={1} currentTime={this.state.currentTime}>
-                <SearchBar searchDishHandler={this.searchDishHandler} searchDishName={this.state.searchDishName}/>
-                </Header>
+                <SearchBar
+                  searchDishHandler={this.searchDishHandler}
+                  searchDishName={this.state.searchDishName}
+                />
+              </Header>
               <View
                 style={{
                   height: '100%',
@@ -215,7 +208,7 @@ class Floor extends React.Component {
                   switchGroupHandler={this.switchGroupHandler}
                   switchCategoryHandler={this.switchCategoryHandler}
                 />
-                <SectionSeparator/>
+                <SectionSeparator />
                 <OrderSpace
                   currentItems={this.state.currentItems}
                   calculatePrice={this.calculatePrice}
@@ -242,10 +235,10 @@ class Floor extends React.Component {
       );
   }
 }
-export default FloorContainer = connect(
+export default (FloorContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Floor);
+)(Floor));
 // export default Floor;
 const styles = StyleSheet.create({
   fullScreen: {
@@ -253,7 +246,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'white',
   },
-  separatorMenuOrder: {
-    
-  },
+  separatorMenuOrder: {},
 });
