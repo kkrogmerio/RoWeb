@@ -21,7 +21,7 @@ export default class OrderSummary extends Component {
                 <Text
                   style={{
                     ...styles.orderSpecsLayout,
-                    ...fontStyle.fontOrderSpecifications,
+                    ...fontStyle.fontDataSpecifications,
                     marginRight: 14,
                   }}>
                   SubTotal
@@ -46,7 +46,7 @@ export default class OrderSummary extends Component {
                 <View style={{flexDirection: 'column-reverse'}}>
                   <Text
                     style={{
-                      ...fontStyle.fontOrderSpecifications,
+                      ...fontStyle.fontDataSpecifications,
                       marginRight: 14,
                     }}>
                     Discount
@@ -65,7 +65,7 @@ export default class OrderSummary extends Component {
                 <View style={{flexDirection: 'column-reverse'}}>
                   <Text
                     style={{
-                      ...fontStyle.fontOrderSpecifications,
+                      ...fontStyle.fontDataSpecifications,
                       marginRight: 14,
                     }}>
                     Total

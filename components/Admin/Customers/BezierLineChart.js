@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableWithoutFeedback, StyleSheet} from 'react-native';
-
+import BoxHeader from '../BoxHeader';
 import colors from '../../../constants/colors';
 import Chronometer from '../../../signletons/Chronometer';
 import SimpleTooltip from '../../UI/SimpleTooltip';
 import {
-  getCurrentTimelineDummyData,
+  getCurrentTimelineChartDummyData,
   
   bezierChartType,
 } from '../../../constants/dummyData';
@@ -37,7 +37,7 @@ export default class BezierLineChart extends Component {
       chartType,
       currentTimeline: {
         ...this.state.currentTimeline,
-        data: getCurrentTimelineDummyData(chartType),
+        data: getCurrentTimelineChartDummyData(chartType),
       },
     });
   }
@@ -70,41 +70,8 @@ export default class BezierLineChart extends Component {
       );
       return (
         <View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <View>
-              <Text style={{fontSize: 17.5, color: 'black'}}>
-                {this.props.title}
-              </Text>
-              <Text style={{fontSize: 12.5, color: 'gray'}}>
-                {this.props.subTitle}
-              </Text>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: 120,
-                justifyContent: 'space-around',
-              }}>
-              {this.props.chartTypes.map(ie => (
-                <TouchableWithoutFeedback onPress={() => this.setChartType(ie)}>
-                  <Text
-                    style={[
-                      {fontSize: 12},
-                      this.state.chartType !== ie
-                        ? {color: colors.gray}
-                        : {color: colors.red},
-                    ]}>
-                    {
-                      ie
-                        .split(/(?=[A-Z])/)
-                        .join(' ')
-                        .split(' ')[0]
-                    }
-                  </Text>
-                </TouchableWithoutFeedback>
-              ))}
-            </View>
-          </View>
+          
+          <BoxHeader chartTypes={this.props.chartTypes} chartType={this.state.chartType} setChartType={this.setChartType} title={this.props.title} subTitle={this.props.subTitle}/>
 
           <Chart
             style={{height: 220, width: 553}}
@@ -153,7 +120,7 @@ export default class BezierLineChart extends Component {
                         ).calibrateChartFormula(v.x)}
                         date={this.state.currentTimeline.date[v.x]}
                         data={v.y}
-                        dataType={'Tables'}
+                        dataType={this.props.dataType}
                       />
                     ),
                   }}
@@ -182,7 +149,7 @@ export default class BezierLineChart extends Component {
       this.setState({
         currentTimeline: {
           ...this.state.currentTimeline,
-          data: getCurrentTimelineDummyData(this.state.chartType),
+          data: getCurrentTimelineChartDummyData(this.state.chartType),
         },
       });
       return <View />;

@@ -7,21 +7,41 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
+
 import {BarChart, Grid, XAxis, YAxis} from 'react-native-svg-charts';
 import {LinearGradient, Stop, Defs} from 'react-native-svg';
 import Chronometer from '../../../signletons/Chronometer';
 import colors from '../../../constants/colors';
 import ComplexTooltip from '../../UI/ComplexTooltip';
 import SimpleTooltip from '../../UI/SimpleTooltip';
+import BoxHeader from '../BoxHeader';
 import {
   
   barChartType,
   getWaitersDummyData,
-  getCurrentTimelineDummyData,
+  getCurrentTimelineChartDummyData,
 } from '../../../constants/dummyData';
 const getChartCalibration = currentChartType => {
   return barChartType[currentChartType];
 };
+function compareAscYValue( a, b ) {
+  if ( a.yValue< b.yValue ){
+    return -1;
+  }
+  if ( a.yValue > b.yValue ){
+    return 1;
+  }
+  return 0;
+}
+function compareDescYValue( a, b ) {
+  if ( a.yValue> b.yValue ){
+    return -1;
+  }
+  if ( a.yValue < b.yValue ){
+    return 1;
+  }
+  return 0;
+}
 const Gradient = () => (
   <Defs key={'gradient'}>
     <LinearGradient id={'gradient'} x1={'0%'} y={'0%'} x2={'0%'} y2={'100%'}>
@@ -53,7 +73,7 @@ export default class GraphBox extends Component {
       chartType,
       currentTimeline: {
         ...this.state.currentTimeline,
-        data: getCurrentTimelineDummyData(chartType),
+        data: getCurrentTimelineChartDummyData(chartType),
       },
     });
   }
@@ -86,7 +106,7 @@ export default class GraphBox extends Component {
       this.setState({
         currentTimeline: {
           ...this.state.currentTimeline,
-          data: getCurrentTimelineDummyData(this.state.chartType),
+          data: getCurrentTimelineChartDummyData(this.state.chartType),
         },
       });
       return <View />;
@@ -106,57 +126,23 @@ export default class GraphBox extends Component {
               : String(this.state.currentTimeline.date[index]).split(',')[0],
         }),
       );
-
+      if(this.props.pickerValue==='lowestHighest')barChartData=barChartData.sort(compareAscYValue)
+      if(this.props.pickerValue==='highestLowest')barChartData=barChartData.sort(compareDescYValue)
+    
       const axesSvg = {fontSize: 10, fill: 'grey'};
 
       return (
         <View>
-          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <View>
-              <Text style={{fontSize: 17.5, color: 'black'}}>
-                {/* Traffic Chart */}
-                {this.props.title}
-              </Text>
-              <Text style={{fontSize: 12.5, color: 'gray'}}>
-                {/* Served Tables Count vs Time */}
-                {this.props.subTitle}
-              </Text>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                width: 120,
-                justifyContent: 'space-around',
-              }}>
-              {this.props.chartTypes.map(ie => (
-                <TouchableWithoutFeedback onPress={() => this.setChartType(ie)}>
-                  <Text
-                    style={[
-                      {fontSize: 12},
-                      this.state.chartType !== ie
-                        ? {color: colors.gray}
-                        : {color: colors.red},
-                    ]}>
-                    {
-                      ie
-                        .split(/(?=[A-Z])/)
-                        .join(' ')
-                        .split(' ')[0]
-                    }
-                  </Text>
-                </TouchableWithoutFeedback>
-              ))}
-            </View>
-          </View>
+          <BoxHeader chartTypes={this.props.chartTypes} chartType={this.state.chartType} setChartType={this.setChartType} title={this.props.title} subTitle={this.props.subTitle}/>
           {this.state.tooltipPosition.x &&
             this.state.tooltipPosition.y &&
             this.state.waitersData &&
             this.props.complexTooltip && (
               <ComplexTooltip
-                topCalibration={-2.0 * this.state.tooltipPosition.y + 120}
+                topCalibration={-1.7 * this.state.tooltipPosition.y + 90}
                 leftCalibration={getChartCalibration(
                   this.state.chartType,
-                ).calibrateChartFormula(this.state.tooltipPosition.x)}
+                ).calibrateChartFormula(this.state.tooltipPosition.x)-10}
                 waitersData={this.state.waitersData}
                 dataType={this.props.dataType}
                 date={this.state.currentTimeline.date[this.state.tooltipPosition.x-1]}

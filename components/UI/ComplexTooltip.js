@@ -53,7 +53,7 @@ export default class ComplexTooltip extends Component {
             />
             <Text style={fontStyle.fontChartDate}>{this.props.date}</Text>
 
-            <Text style={fontStyle.fontChartData}>
+            <Text style={fontStyle.fontData}>
               {this.props.waitersData
                 .map(ie => ie.performance)
                 .reduce((prev, cur) => prev + cur, 0)}{' '}

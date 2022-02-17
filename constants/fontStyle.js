@@ -4,7 +4,7 @@ export default {
     color: '#707070',
   },
   fontChartDate: {color: '#a8a8a8', fontSize: 10},
-  fontChartData: {color: '#fff', fontSize: 14},
+  fontData: {color: '#fff', fontSize: 14},
   fontDetailsBox: {
     fontSize: 12.5,
     color: '#ffffff',
@@ -13,7 +13,7 @@ export default {
     fontSize: 15,
     color: '#ffffff',
   },
-  fontOrderSpecifications: {
+  fontDataSpecifications: {
     fontSize: 12.5,
     color: '#707070',
   },

@@ -20,6 +20,7 @@ export default class CustomerSpace extends Component {
           title={'Traffic Chart'}
           subTitle={'Served Tables Count vs Time'}
           chartTypes={['WeekChart', 'DayChart', 'MonthChart']}
+          dataType={"Tables"}
         />
 
         <GraphBox
@@ -27,6 +28,7 @@ export default class CustomerSpace extends Component {
           title={'Serving Time'}
           subTitle={'Avg. time taken for serving per table (MIN) vs. Time'}
           chartTypes={['HourChart', 'DayChart', 'WeekChart']}
+          dataType={"Tables"}
         />
       </View>
     );

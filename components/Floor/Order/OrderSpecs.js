@@ -23,7 +23,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Connection Code
             </Text>
@@ -40,7 +40,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Elaps Time
             </Text>
@@ -67,7 +67,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Service Order
             </Text>
@@ -84,7 +84,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Party Size
             </Text>
@@ -101,7 +101,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Table Number
             </Text>
@@ -119,7 +119,7 @@ export default class OrderSpecs extends Component {
           <Text
             style={{
               ...styles.orderSpecsLayout,
-              ...fontStyle.fontOrderSpecifications,
+              ...fontStyle.fontDataSpecifications,
             }}>
             Order Details
           </Text>
@@ -135,7 +135,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Qty
             </Text>
@@ -144,7 +144,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Order
             </Text>
@@ -153,7 +153,7 @@ export default class OrderSpecs extends Component {
             <Text
               style={{
                 ...styles.orderSpecsLayout,
-                ...fontStyle.fontOrderSpecifications,
+                ...fontStyle.fontDataSpecifications,
               }}>
               Price
             </Text>

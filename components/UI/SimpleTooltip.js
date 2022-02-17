@@ -17,7 +17,7 @@ export default class SimpleTooltip extends Component {
         <View>
           <Text style={fontStyle.fontChartDate}>{this.props.date}</Text>
 
-          <Text style={fontStyle.fontChartData}>
+          <Text style={fontStyle.fontData}>
             {this.props.data} {this.props.dataType}
           </Text>
         </View>
@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     position: 'absolute',
 
-    width: 80,
-    height: 63,
-
+  
+    paddingVertical:5,
+    paddingHorizontal:10,
     backgroundColor: 'black',
 
     flexDirection: 'column-reverse',
