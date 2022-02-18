@@ -21,14 +21,16 @@ export default class MenuChart extends Component {
     this.setState({chartType});
   }
   toNextDish(){
-    console.log(this.state.currentListOffset);
     
+    console.log(this.state.currentListOffset)
     let newOffsetValue = this.state.currentListOffset+1;
+    
     this.state.flatListRef.current.scrollToIndex({index:newOffsetValue,animated:true})
     this.setState({currentListOffset:newOffsetValue})
   }
-  toPrevDish(){
+  toPrevDish(){console.log(this.state.currentListOffset)
     let newOffsetValue = this.state.currentListOffset-1;
+    
     this.state.flatListRef.current.scrollToIndex({index:newOffsetValue,animated:true})
     this.setState({currentListOffset:newOffsetValue})
   }
@@ -63,7 +65,7 @@ export default class MenuChart extends Component {
                 display: 'flex',
                 justifyContent: 'center',
               }}>
-           {this.state.currentListOffset<this.state.dishesData.length-1&&        <TouchableWithoutFeedback onPress={this.toNextDish}>
+           {this.state.currentListOffset<this.state.dishesData.length-4&&        <TouchableWithoutFeedback onPress={this.toNextDish}>
               <View style={{width: 16, height: 27}}>
                 <Image
                   source={require('../../../assets/icons/next.png')}

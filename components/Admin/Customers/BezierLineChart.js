@@ -114,6 +114,7 @@ export default class BezierLineChart extends Component {
                     shape: {width: 0, height: 0},
                     formatter: v => (
                       <SimpleTooltip
+                        otherTooltipInfo={this.props.otherTooltipInfo}
                         topCalibration={135 - 2 * v.y}
                         leftCalibration={getChartCalibration(
                           this.state.chartType,

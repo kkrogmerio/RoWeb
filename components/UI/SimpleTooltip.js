@@ -15,6 +15,8 @@ export default class SimpleTooltip extends Component {
           {left: this.props.leftCalibration, top: this.props.topCalibration},
         ]}>
         <View>
+   {this.props.otherTooltipInfo&&<Text style={fontStyle.fontData}>{this.props.otherTooltipInfo}{"\n"}</Text>
+         }
           <Text style={fontStyle.fontChartDate}>{this.props.date}</Text>
 
           <Text style={fontStyle.fontData}>

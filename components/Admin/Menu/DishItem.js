@@ -12,7 +12,7 @@ export default class DishItem extends Component {
   render() {
    let {dishData}=this.props;
    let dishKeys=Object.keys(dishData).filter(ie=>ie!='menuImage');
-    return (<View style={{width:110,height:'100%',marginHorizontal:10}}>
+    return (<View style={{width:108,height:'100%',marginHorizontal:10}}>
       
       <View style={{width:'100%',height:107}}>
         <Image source={dishData['menuImage']} style={{maxWidth:'100%',maxHeight:'100%'}}/>

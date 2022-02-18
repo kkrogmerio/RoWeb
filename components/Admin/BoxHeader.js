@@ -25,7 +25,7 @@ export default class BoxHeader extends Component {
             width: 120,
             justifyContent: 'space-around',
           }}>
-          {this.props.chartTypes.map(ie => (
+          {this.props.chartTypes&&this.props.chartTypes.map(ie => (
             <TouchableWithoutFeedback onPress={() => this.props.setChartType(ie)}>
               <Text
                 style={[

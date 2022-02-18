@@ -21,6 +21,7 @@ export default class CustomerSpace extends Component {
           subTitle={'Served Tables Count vs Time'}
           chartTypes={['WeekChart', 'DayChart', 'MonthChart']}
           dataType={"Tables"}
+
         />
 
         <GraphBox

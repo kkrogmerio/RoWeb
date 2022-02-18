@@ -3,6 +3,7 @@ import { View, Text,ScrollView,StyleSheet } from 'react-native';
 
 import Customers from '../../../components/Admin/Customers/CustomerSpace';
 import Waiters from '../../../components/Admin/Waiters/WaiterSpace';
+import Branch from '../../../components/Admin/Branch/BranchSpace'
 import Menu from '../../../components/Admin/Menu/MenuSpace';
 import TableStatus from '../../../components/Admin/TableStatus';
 import SectionSeparator from '../../../components/UI/SectionSeparator';
@@ -22,6 +23,8 @@ export default class Evaluations extends Component {
         <Waiters/>
         <SectionSeparator/>
         <Menu/>
+        <SectionSeparator/>
+        <Branch/>
         </ScrollView>
         <TableStatus/>
         </View>
