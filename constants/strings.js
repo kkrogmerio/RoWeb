@@ -3,5 +3,5 @@ export const STATUS_TABLE={
     BUSY:"Busy",
     OVERSTAYED:"Overstayed",
     NEED_SERVICES:"Need Service",
-    NO_WAITERS:"No Waiters"
+    NO_WAITERS:"No Waiters",
 }
