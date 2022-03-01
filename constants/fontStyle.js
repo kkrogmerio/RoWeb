@@ -45,4 +45,16 @@ export default {
     fontSize: 17.5,
     color: 'white',
   },
+  menuHeader:{
+    fontSize:28,
+    color: 'white',
+  },
+  menuTitle:{
+    fontSize:20,
+    color: 'white',
+  },
+ menuDesc:{
+    fontSize:14,
+    color:'white'
+  }
 };

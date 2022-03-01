@@ -30,7 +30,7 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
             backgroundColor: '#222',
             flexDirection: 'row',
           }}>
-          <View style={{flex: 2}}>
+         {this.state.route!=='Menu'&& <View style={{flex: 2}}>
             <View style={{alignItems: 'center'}}>
               <Image
                 source={nextBiteMenu}
@@ -45,7 +45,7 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
               activeItem={this.state.route}
               {...this.props}
             />
-          </View>
+          </View>}
 
           <View style={{flex: 14}}>
             <Navigator

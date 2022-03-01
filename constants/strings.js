@@ -5,3 +5,6 @@ export const STATUS_TABLE={
     NEED_SERVICES:"Need Service",
     NO_WAITERS:"No Waiters",
 }
+export const MENU={
+    DEFAULT_HEADER:"SELECT MENU"
+}

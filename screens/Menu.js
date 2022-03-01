@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import Firebase from '../firebase/firebase';
-import {dummyRestaurantFirebase} from '../constants/dummyData';
+import { View } from 'react-native';
+import {MENU} from '../constants/strings';
+import {LeftSideMenu,RightSideMenu} from '../components/Menu';
+
+
 class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      menuHeader:'Breakfast'
     };
+    
   }
-  componentDidMount() {
-
-    Firebase.database.ref(`viewStore/${ Firebase.restaurantId }/menus/${Firebase.menuId}`).on('value',snapshot=>{console.log("SNAPSHOT = ",snapshot)})
-  }
+  
   render() {
+   
+  
+  
     return (
-      <View>
-        <Text> Menu </Text>
+      <View style={{flex:1,flexDirection:'row'}}>
+        <LeftSideMenu menuHeader={this.state.menuHeader}/>
+        <RightSideMenu selectGroup={this.state.menuHeader==MENU.DEFAULT_HEADER}/>
       </View>
     );
   }
 }
 
-export default Menu;
+export default  (Menu);

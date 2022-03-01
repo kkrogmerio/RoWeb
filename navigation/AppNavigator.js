@@ -31,7 +31,7 @@ const defaultConfiguration = {
   },
 
   Menu: {
-    screen: Menu,
+    screen: () => <Menu />,
     icon: require('../assets/icons/menu.png'),
     adminOnly: false,
   },

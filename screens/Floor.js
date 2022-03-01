@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {GET_RESTAURANTS_MENU} from '../redux/restaurants';
+import {GET_RESTAURANT_MENU} from '../redux/restaurants';
 import {GET_RESTAURANTS_ORDER} from '../redux/restaurants';
 import {ActivityIndicator, StyleSheet, View, Text} from 'react-native';
 import Header from '../components/UI/Header';
@@ -13,15 +13,15 @@ import SectionSeparator from '../components/UI/SectionSeparator';
 import BezierLineChart from '../components/Admin/Customers/BezierLineChart';
 const mapStateToProps = state => {
   return {
-    restaurantsMenu: state.restaurants.restaurantsMenu,
+    restaurantMenu: state.restaurants.restaurantMenu,
     restaurantsOrder: state.restaurants.restaurantsOrder,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    getRestaurantsMenu: () => {
-      dispatch({type: GET_RESTAURANTS_MENU});
+    getrestaurantMenu: () => {
+      dispatch({type: GET_RESTAURANT_MENU});
     },
     getRestaurantsOrder: () => {
       dispatch({type: GET_RESTAURANTS_ORDER});
@@ -65,10 +65,10 @@ class Floor extends React.Component {
   }
   componentWillReceiveProps(newProps) {
     setTimeout(() => {}, 1000);
-    if (newProps.restaurantsMenu && newProps.restaurantsOrder) {
-      let groups = newProps.restaurantsMenu.groups;
-      let dishes = newProps.restaurantsMenu.dishes;
-      let categories = newProps.restaurantsMenu.categories;
+    if (newProps.restaurantMenu && newProps.restaurantsOrder) {
+      let groups = newProps.restaurantMenu.groups;
+      let dishes = newProps.restaurantMenu.dishes;
+      let categories = newProps.restaurantMenu.categories;
 
       let items = newProps.restaurantsOrder.items;
 
@@ -94,7 +94,7 @@ class Floor extends React.Component {
     }
   }
   searchDishHandler(inputValue) {
-    let dishes = this.props.restaurantsMenu.dishes;
+    let dishes = this.props.restaurantMenu.dishes;
 
     let onSelectedCategoryDishes = dishes.filter(ie =>
       ie.categoryIds.includes(this.state.selectedCategory),
@@ -130,8 +130,8 @@ class Floor extends React.Component {
     return categoryButtonDesign;
   }
   switchGroupHandler(groupId) {
-    let dishes = this.props.restaurantsMenu.dishes;
-    let categories = this.props.restaurantsMenu.categories;
+    let dishes = this.props.restaurantMenu.dishes;
+    let categories = this.props.restaurantMenu.categories;
 
     let filteredCategories = categories.filter(ie =>
       ie.groupIds.includes(groupId),
@@ -149,7 +149,7 @@ class Floor extends React.Component {
     });
   }
   switchCategoryHandler(categoryId) {
-    let dishes = this.props.restaurantsMenu.dishes;
+    let dishes = this.props.restaurantMenu.dishes;
 
     let filteredDishes = dishes.filter(ie =>
       ie.categoryIds.includes(categoryId),
@@ -166,7 +166,7 @@ class Floor extends React.Component {
     setTimeout(() => {}, 1000);
     try {
       this.props.getRestaurantsOrder();
-      this.props.getRestaurantsMenu();
+      this.props.getrestaurantMenu();
     } catch (e) {
       this.setState({isLoading: false});
       this.setState({isError: true});
@@ -175,12 +175,12 @@ class Floor extends React.Component {
   }
   render() {
     if (
-      this.props.restaurantsMenu &&
+      this.props.restaurantMenu &&
       this.props.restaurantsOrder &&
       this.state.isLoading == false
     ) {
       let scalars = this.props.restaurantsOrder.scalars;
-      let groups = this.props.restaurantsMenu.groups;
+      let groups = this.props.restaurantMenu.groups;
 
       if (this.state.fetchedData && groups && this.state.isLoading == false) {
         return (

@@ -4,6 +4,7 @@ export const trafficChartDumy = {
   WeekChart: [22, 22, 33, 11, 32],
   MonthChart: [14, 14, 21, 30, 42, 27, 18],
 };
+export const loremIpsum="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, nisl vel sollicitudin ultricies, est purus dictum orci, nec pretium ipsum ex eu lorem. "
 export const getDishesDummyData =()=> [
   {'Dish': 'Veg Wrap', 'Price': 30.0, 'Orders per day': 32,'menuImage':require('../assets/icons/menuItem.jpeg')},
   {'Dish': 'Mega Sandwitch', 'Price': 25.75, 'Orders per day': 27,'menuImage':require('../assets/icons/menuItem.jpeg')},
