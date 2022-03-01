@@ -5,7 +5,7 @@ import React from 'react';
 import Floor from '../screens/Floor';
 import WaitList from '../screens/Waitlist';
 import Admin from '../screens/Admin';
-import Menu from '../screens/Menu';
+// import Menu from '../screens/Menu';
 import Support from '../screens/Support';
 import Logout from '../screens/Logout';
 import {StyleSheet, View} from 'react-native';
@@ -30,11 +30,11 @@ const defaultConfiguration = {
     adminOnly: false,
   },
 
-  Menu: {
-    screen: () => <Menu />,
-    icon: require('../assets/icons/menu.png'),
-    adminOnly: false,
-  },
+  // Menu: {
+  //   screen: () => <Menu />,
+  //   icon: require('../assets/icons/menu.png'),
+  //   adminOnly: false,
+  // },
   Support: {
     screen: Support,
     icon: require('../assets/icons/support.png'),
@@ -69,7 +69,7 @@ class AppNavigator extends React.Component {
   }
   configureNavigator() {
     return createLeftNavigator(defaultConfiguration, {
-      initialRouteName: 'Menu',
+      initialRouteName: 'WaitList',
       tabBarComponent: () => {
         return null;
       },

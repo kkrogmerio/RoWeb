@@ -11,11 +11,7 @@ const mapStateToProps = state=>{
       restaurantMenu:state.restaurants.restaurantMenu
   }
 }
-const mapDispatchToProps =dispatch=>{
-  return{
-    getRestaurantMenu:()=>dispatch({type: GET_RESTAURANT_MENU})
-  }
-}
+
 class RightSideMenu extends Component {
   constructor(props) {
     super(props);
@@ -55,11 +51,11 @@ getCategoriesForGroup(groupId) {
 return <View/>}
       else if(this.state.dishes.length>0&&this.state.categories.length>0&&this.state.groups.length>0)
       {
-        if(this.props.selectGroup)
+        // if(this.props.selectGroup)
           return <DisplayGroups items={this.state.groups}/>
-        else
-          { 
-            return <DisplayDishes items={this.getCategoriesForGroup(2192)} />}
+        // else
+        //   { 
+        //     return <DisplayDishes items={this.getCategoriesForGroup(2192)} />}
       }
       else
     return (

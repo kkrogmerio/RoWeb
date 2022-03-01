@@ -14,12 +14,12 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
 
     setRoute = (prevState, nextState) => {
       const route = nextState.routes[nextState.index].routeName;
-
+     
       this.setState({route: route});
     };
 
     navigate = route => {
-      this.navigator.navigate(route);
+      this.navigator.navigate(route,{withAnimation: true});
     };
 
     render() {
@@ -50,6 +50,7 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
           <View style={{flex: 14}}>
             <Navigator
               onNavigationStateChange={this.setRoute}
+              navigate={this.navigate}
               ref={element => (this.navigator = element?._navigation)}
             />
           </View>

@@ -18,7 +18,7 @@ export default class DisplayDishes extends Component {
       currentDishes: null,
     };
     this.switchCategoryHandler = this.switchCategoryHandler.bind(this);
-    // this.isSelectedCategory = this.isSelectedCategory.bind(this);
+
   }
   switchCategoryHandler(categoryId) {
     let dishes = this.props.items.dishes;
@@ -37,7 +37,7 @@ export default class DisplayDishes extends Component {
   }
   render() {
     const {categories,dishes} = this.props.items;
-dishes.map(ie=>console.log("id:",ie.categoryIds))
+
     return (
       <View style={styles.dishesPanel}>
        {this.state.currentDishes&&<View><View style={styles.categoriesBar}>
@@ -65,7 +65,7 @@ dishes.map(ie=>console.log("id:",ie.categoryIds))
               numColumns={2}
               data={this.state.currentDishes}
               contentContainerStyle={{ paddingBottom: 50 }}
-              renderItem={({item}) => (<View><FastImage source={{uri:item.imageUrl}} style={styles.dishImage}/></View>)}
+              renderItem={({item}) => (<FastImage source={{uri:item.imageUrl}} style={styles.dishImage}/>)}
                
               
               keyExtractor={item => item.name}

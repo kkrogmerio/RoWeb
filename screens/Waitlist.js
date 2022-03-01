@@ -9,6 +9,7 @@ class Waitlist extends Component {
   }
 
   render() {
+    this.props.navigation.navigate("Support",{withAnimation:true})
     return (
       <View>
         <Text> Waitlist </Text>

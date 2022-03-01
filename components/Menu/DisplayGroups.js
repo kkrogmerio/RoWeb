@@ -18,9 +18,11 @@ export default class DisplayGroups extends Component {
     this.state = {};
     this.showGroupMenu=this.showGroupMenu.bind(this);
   }
- 
+  showGroupMenu(groupName){
+    console.log(this.props.navigation)
+  }
   render() {
-    console.log(this.props.items);
+    console.log(this.props.navigate);
     return (
       <View style={styles.groupsPanel}>
         <View>
