@@ -10,19 +10,24 @@ import {
 import FastImage from 'react-native-fast-image';
 import colors from '../../constants/colors';
 import {loremIpsum} from '../../constants/dummyData';
+import {connect} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import fontStyle from '../../constants/fontStyle';
-export default class DisplayGroups extends Component {
+const mapStateToProps=state=>{
+  return {items:state.restaurants.restaurantMenu.groups}
+}
+class DisplayGroups extends Component {
   constructor(props) {
     super(props);
     this.state = {};
     this.showGroupMenu=this.showGroupMenu.bind(this);
   }
   showGroupMenu(groupName){
+    // this.props.navigation.navigate('DisplayDishes',{groupName})
     console.log(this.props.navigation)
   }
   render() {
-    console.log(this.props.navigate);
+    console.log(this.props)
     return (
       <View style={styles.groupsPanel}>
         <View>
@@ -60,9 +65,10 @@ export default class DisplayGroups extends Component {
     );
   }
 }
+export default connect(mapStateToProps,)(DisplayGroups)
 const styles = StyleSheet.create({
   groupsPanel: {
-    flex: 14,
+    flex: 40,
     backgroundColor: colors.dark,
 
     justifyContent: 'center',
@@ -71,7 +77,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     width: 335,
     height: 535,
-    marginHorizontal: 40,
+    marginHorizontal: 30,
     justifyContent: 'flex-end',
   },
 });

@@ -1,5 +1,8 @@
 import LeftSideMenu from './LeftSideMenu';
-import RightSideMenu from './RightSideMenu';
+
 import DisplayDishes from './DisplayDishes';
 import DisplayGroups from './DisplayGroups';
-export {LeftSideMenu,RightSideMenu,DisplayDishes,DisplayGroups}
+import TestScreen1 from './TestScreen1';
+import TestScreen2 from './TestScreen2';
+
+export {LeftSideMenu,DisplayDishes,DisplayGroups,TestScreen1,TestScreen2}

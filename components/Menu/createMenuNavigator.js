@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {MENU} from '../../constants/strings';
-import {TabNavigator} from 'react-navigation';
+import {createTabNavigator} from 'react-navigation';
 import { LeftSideMenu } from '.';
-export  function createMenuNavigator(routeConfigMap, stackConfig = {}){
-    let Navigator=TabNavigator(routeConfigMap, stackConfig);
+export  default function createMenuNavigator(routeConfigMap, stackConfig = {}){
+    let Navigator=createTabNavigator(routeConfigMap, stackConfig);
     class Menu extends React.PureComponent {
         state = {
           route: stackConfig.initialRouteName,
@@ -13,7 +13,7 @@ export  function createMenuNavigator(routeConfigMap, stackConfig = {}){
     
         setRoute = (prevState, nextState) => {
           const route = nextState.routes[nextState.index].routeName;
-            const selectedGroup=nextState.routes
+            console.log(nextState.routes[nextState.index])
           this.setState({route: route,selectedGroup});
         };
     
@@ -29,4 +29,5 @@ export  function createMenuNavigator(routeConfigMap, stackConfig = {}){
             )
         }
     }
+    return Menu;
 }

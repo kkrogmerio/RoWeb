@@ -1,11 +1,11 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 // import { createBottomTabNavigator } from 'react-navigation'
-import {TabNavigator} from 'react-navigation';
+import {createTabNavigator} from 'react-navigation';
 import LeftMenu from '../components/UI/LeftMenu';
 
 function createLeftNavigator(routeConfigMap, stackConfig = {}) {
-  let Navigator = TabNavigator(routeConfigMap, stackConfig);
+  let Navigator = createTabNavigator(routeConfigMap, stackConfig);
   const nextBiteMenu = require('../assets/icons/icon_support_next_bite.png');
   class Menu extends React.PureComponent {
     state = {
@@ -14,7 +14,7 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
 
     setRoute = (prevState, nextState) => {
       const route = nextState.routes[nextState.index].routeName;
-     
+      console.log(nextState.routes[nextState.index])
       this.setState({route: route});
     };
 
@@ -23,6 +23,7 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
     };
 
     render() {
+      
       return (
         <View
           style={{
@@ -50,7 +51,7 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
           <View style={{flex: 14}}>
             <Navigator
               onNavigationStateChange={this.setRoute}
-              navigate={this.navigate}
+              // navigate={this.navigate}
               ref={element => (this.navigator = element?._navigation)}
             />
           </View>

@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import {MENU} from '../constants/strings';
-import {LeftSideMenu,RightSideMenu,DisplayDishes,DisplayGroups} from '../components/Menu';
+import {GET_RESTAURANT_MENU} from '../redux/restaurants';
+import {connect} from 'react-redux';
+import {DisplayDishes,DisplayGroups,TestScreen1,TestScreen2} from '../components/Menu';
 import createMenuNavigator from '../components/Menu/createMenuNavigator';
 const defaultConfiguration = {
   DisplayGroups: {
-    screen: () => <DisplayGroups />,
-    icon: require('../assets/icons/floor.png'),
+    screen: DisplayGroups ,
+
 
   },
   DisplayDishes: {
-    screen:()=> <DisplayDishes/>,
-    icon: require('../assets/icons/admin.png'),
- 
+    screen:  DisplayDishes ,
+
+
   },
   
 }
-const mapStateToProps = state=>{
+const mapStateToProps=state=>{
+  return {restaurantMenu:state.restaurants.restaurantMenu}
+}
+const mapDispatchToProps = dispatch => {
   return {
-    
-      restaurantMenu:state.restaurants.restaurantMenu
+    getRestaurantMenu: () => {
+      dispatch({type: GET_RESTAURANT_MENU});
+    },
   }
 }
 class Menu extends Component {
@@ -49,12 +55,16 @@ configureNavigator(){
     if(!this.MenuNavi)
       this.MenuNavi=this.configureNavigator();
     if(this.props.restaurantMenu)
-    return (
+   {  console.log(this.props.restaurantMenu.dishes,"HEREEE")
+      return (
      <this.MenuNavi/>
-    );
+    );}
     else
     return <View/>
   }
 }
 
-export default  (Menu);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Menu);

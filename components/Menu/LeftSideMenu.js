@@ -75,7 +75,7 @@ export default class LeftSideMenu extends Component {
 }
 const styles = StyleSheet.create({
   leftMenu: {
-    flex: 2,
+    flex:0.15,
     backgroundColor: colors.dark,
     alignItems: 'center',
     paddingVertical: 40,
