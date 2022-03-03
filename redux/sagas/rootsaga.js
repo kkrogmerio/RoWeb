@@ -6,6 +6,7 @@ import {configureFirebase} from './handlers/firebase'
 export function* watcherSaga(){
     yield takeLatest(GET_RESTAURANT_MENU,handleGetMenu);
     yield takeLatest(GET_RESTAURANTS_ORDER,handleGetOrder);
+
     yield takeLatest(CONFIGURE_FIREBASE,configureFirebase);
    
 

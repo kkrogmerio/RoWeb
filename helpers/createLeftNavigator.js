@@ -14,7 +14,7 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
 
     setRoute = (prevState, nextState) => {
       const route = nextState.routes[nextState.index].routeName;
-      console.log(nextState.routes[nextState.index])
+      
       this.setState({route: route});
     };
 

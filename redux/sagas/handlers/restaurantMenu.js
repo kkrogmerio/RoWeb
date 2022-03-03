@@ -2,6 +2,7 @@ import {call, put} from 'redux-saga/effects';
 import {requestGetMenu} from '../requests/restaurantMenu';
 
 import {SET_RESTAURANT_MENU} from '../../restaurants';
+
 export function* handleGetMenu() {
   try {
     const response = yield call(requestGetMenu);

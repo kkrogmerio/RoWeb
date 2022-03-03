@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,TouchableWithoutFeedback} from 'react-native';
 
 class Logout extends Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Logout extends Component {
   }
 
   render() {
-    console.log(this.props)
+
     return (
       <View>
         <Text> Logout </Text>

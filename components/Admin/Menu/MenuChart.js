@@ -22,13 +22,13 @@ export default class MenuChart extends Component {
   }
   toNextDish(){
     
-    console.log(this.state.currentListOffset)
+   
     let newOffsetValue = this.state.currentListOffset+1;
     
     this.state.flatListRef.current.scrollToIndex({index:newOffsetValue,animated:true})
     this.setState({currentListOffset:newOffsetValue})
   }
-  toPrevDish(){console.log(this.state.currentListOffset)
+  toPrevDish(){
     let newOffsetValue = this.state.currentListOffset-1;
     
     this.state.flatListRef.current.scrollToIndex({index:newOffsetValue,animated:true})

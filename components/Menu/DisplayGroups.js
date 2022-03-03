@@ -13,21 +13,31 @@ import {loremIpsum} from '../../constants/dummyData';
 import {connect} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import fontStyle from '../../constants/fontStyle';
+import {SET_MENU_CURRENT_GROUP}  from '../../redux/restaurants';
 const mapStateToProps=state=>{
-  return {items:state.restaurants.restaurantMenu.groups}
+  return {items:state.restaurants.restaurantMenu.groups,
+  groupId:state.restaurants.currentGroup}
+}
+mapDispatchToProps=dispatch=>{
+  return {setMenuGroupId:(groupId)=>dispatch({type:SET_MENU_CURRENT_GROUP,groupId})}
 }
 class DisplayGroups extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {refreshPage:0};
     this.showGroupMenu=this.showGroupMenu.bind(this);
   }
-  showGroupMenu(groupName){
-    // this.props.navigation.navigate('DisplayDishes',{groupName})
-    console.log(this.props.navigation)
+  showGroupMenu(groupId){
+ 
+
+    
+    this.props.setMenuGroupId(groupId);
+    this.props.navigation.navigate('DisplayDishes');
+    
+   
   }
   render() {
-    console.log(this.props)
+    
     return (
       <View style={styles.groupsPanel}>
         <View>
@@ -36,7 +46,7 @@ class DisplayGroups extends Component {
             contentContainerStyle={{paddingHorizontal: 80}}
             data={this.props.items}
             renderItem={({item}) => (
-              <TouchableWithoutFeedback onPress={()=>this.showGroupMenu(item.name)}>
+              <TouchableWithoutFeedback onPress={()=>this.showGroupMenu(item.id)}>
                 <FastImage
                   source={{uri: item.imageUrl}}
                   style={styles.groupImage}>
@@ -65,7 +75,7 @@ class DisplayGroups extends Component {
     );
   }
 }
-export default connect(mapStateToProps,)(DisplayGroups)
+export default connect(mapStateToProps,mapDispatchToProps)(DisplayGroups)
 const styles = StyleSheet.create({
   groupsPanel: {
     flex: 40,

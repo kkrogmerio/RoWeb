@@ -174,7 +174,7 @@ class Floor extends React.Component {
     this.setState({isLoading: false});
   }
   render() {
-    console.log(this.props.navigation,"REEEED")
+   
     if (
       this.props.restaurantMenu &&
       this.props.restaurantsOrder &&

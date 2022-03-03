@@ -9,9 +9,9 @@ export default class TestScreen1 extends Component {
   }
 
   render() {
-      console.log(this.props.navigation,"VALEURED");
+      console.log("UAI")
     return (
-      <View>
+      <View style={{flex:40,backgroundColor:'white'}}>
         <Text> TestScreen1 </Text>
       </View>
     );

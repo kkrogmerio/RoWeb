@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {MENU} from '../../constants/strings';
-import {createTabNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
 import { LeftSideMenu } from '.';
 export  default function createMenuNavigator(routeConfigMap, stackConfig = {}){
-    let Navigator=createTabNavigator(routeConfigMap, stackConfig);
+    let Navigator=createStackNavigator(routeConfigMap, stackConfig);
     class Menu extends React.PureComponent {
         state = {
           route: stackConfig.initialRouteName,
@@ -13,8 +13,8 @@ export  default function createMenuNavigator(routeConfigMap, stackConfig = {}){
     
         setRoute = (prevState, nextState) => {
           const route = nextState.routes[nextState.index].routeName;
-            console.log(nextState.routes[nextState.index])
-          this.setState({route: route,selectedGroup});
+          console.log(this.props.navigation)
+          this.setState({route: route});
         };
     
         navigate = route => {
