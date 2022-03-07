@@ -3,7 +3,7 @@ import { View,Animated,Easing} from 'react-native';
 import {MENU} from '../constants/strings';
 import {GET_RESTAURANT_MENU} from '../redux/restaurants';
 import {connect} from 'react-redux';
-import {DisplayDishes,DisplayGroups,TestScreen1,TestScreen2} from '../components/Menu';
+import {DisplayDishes,DisplayGroups} from '../components/Menu';
 import createMenuNavigator from '../components/Menu/createMenuNavigator';
 const defaultConfiguration = {
   DisplayGroups: {
@@ -11,9 +11,7 @@ const defaultConfiguration = {
 
 
   },
-  TestScreen1: {
-    screen:  TestScreen1 
-  },
+
   DisplayDishes: {
     screen:  DisplayDishes ,
 

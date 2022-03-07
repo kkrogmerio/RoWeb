@@ -52,6 +52,12 @@ export default {
   menuTitle:{
     fontSize:20,
     color: 'white',
+    
+  },
+  groupMenuTitle:{
+    fontFamily:'BeyondTheMountains',
+    fontSize:34,
+    color:'white'
   },
  menuDesc:{
     fontSize:14,

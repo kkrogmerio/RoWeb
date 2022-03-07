@@ -20,6 +20,10 @@
 		877C325738B3822AC18051A9 /* libPods-OrderingWindowTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4965415CB3A7D51A4752366 /* libPods-OrderingWindowTests.a */; };
 		8DF6360FE98DCF3DBE2258A3 /* libPods-OrderingWindow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4D9BA5A8E5D2E8FD7E5E427 /* libPods-OrderingWindow.a */; };
 		B16DF872A893D06494B70324 /* libPods-OrderingWindow-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF4C173F4500D4251A72CD2 /* libPods-OrderingWindow-tvOSTests.a */; };
+		7EA73993E57D48A7B8536684 /* beyond_the_mountains.otf in Resources */ = {isa = PBXBuildFile; fileRef = A7AD41616324480D921D482B /* beyond_the_mountains.otf */; };
+		DB70E93F5F6F42F0A9593E15 /* beyond_the_mountains.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BEB190E0D5A431ABE627126 /* beyond_the_mountains.ttf */; };
+		41B73EA0A483447C8AC2F4D6 /* HelveticaNeueLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86CC5F1A32714DACA8E5BA19 /* HelveticaNeueLTStd-Roman.otf */; };
+		7C163514F81D4BD083EC7943 /* HelveticaNeueLTStdRoman.woff in Resources */ = {isa = PBXBuildFile; fileRef = 3332B8B5ACEB43FFA69FCE38 /* HelveticaNeueLTStdRoman.woff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		EFF4C173F4500D4251A72CD2 /* libPods-OrderingWindow-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OrderingWindow-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F172F1E6617E1C6541E339BA /* Pods-OrderingWindow-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderingWindow-tvOS.release.xcconfig"; path = "Target Support Files/Pods-OrderingWindow-tvOS/Pods-OrderingWindow-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		F4D9BA5A8E5D2E8FD7E5E427 /* libPods-OrderingWindow.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OrderingWindow.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7AD41616324480D921D482B /* beyond_the_mountains.otf */ = {isa = PBXFileReference; name = "beyond_the_mountains.otf"; path = "../assets/fonts/beyond_the_mountains.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7BEB190E0D5A431ABE627126 /* beyond_the_mountains.ttf */ = {isa = PBXFileReference; name = "beyond_the_mountains.ttf"; path = "../assets/fonts/beyond_the_mountains.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		86CC5F1A32714DACA8E5BA19 /* HelveticaNeueLTStd-Roman.otf */ = {isa = PBXFileReference; name = "HelveticaNeueLTStd-Roman.otf"; path = "../assets/fonts/HelveticaNeueLTStd-Roman.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3332B8B5ACEB43FFA69FCE38 /* HelveticaNeueLTStdRoman.woff */ = {isa = PBXFileReference; name = "HelveticaNeueLTStdRoman.woff"; path = "../assets/fonts/HelveticaNeueLTStdRoman.woff"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				3462048C6B06EE5D8ABF929A /* Pods */,
+				75F157C0DD644E469D61646A /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -196,6 +205,18 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		75F157C0DD644E469D61646A /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A7AD41616324480D921D482B /* beyond_the_mountains.otf */,
+				7BEB190E0D5A431ABE627126 /* beyond_the_mountains.ttf */,
+				86CC5F1A32714DACA8E5BA19 /* HelveticaNeueLTStd-Roman.otf */,
+				3332B8B5ACEB43FFA69FCE38 /* HelveticaNeueLTStdRoman.woff */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -284,7 +305,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -338,6 +359,10 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				7EA73993E57D48A7B8536684 /* beyond_the_mountains.otf in Resources */,
+				DB70E93F5F6F42F0A9593E15 /* beyond_the_mountains.ttf in Resources */,
+				41B73EA0A483447C8AC2F4D6 /* HelveticaNeueLTStd-Roman.otf in Resources */,
+				7C163514F81D4BD083EC7943 /* HelveticaNeueLTStdRoman.woff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
