@@ -74,9 +74,9 @@ export default class BezierLineChart extends Component {
           <BoxHeader chartTypes={this.props.chartTypes} chartType={this.state.chartType} setChartType={this.setChartType} title={this.props.title} subTitle={this.props.subTitle}/>
 
           <Chart
-            style={{height: 220, width: 553}}
+            style={{height: 220, width: 570}}
             data={data}
-            padding={{left: 40, bottom: 20, right: 20, top: 20}}
+            padding={{left: 40, bottom: 20, right: 22, top: 20}}
             yDomain={{min: 0, max: 100}}>
             <VerticalAxis
               tickCount={6}
@@ -96,13 +96,13 @@ export default class BezierLineChart extends Component {
                         )[0],
                 },
               }}
-              includeOriginTick={false}
+             
             />
             <Area
               theme={{
                 gradient: {
-                  from: {color: '#ed1f24'},
-                  to: {color: '#ef4e23', opacity: 0.2},
+                  from: {color: '#f26522'},
+                  to: {color: '#ef4e23'},
                 },
               }}
             />
@@ -110,6 +110,7 @@ export default class BezierLineChart extends Component {
               smoothing="cubic-spline"
               tooltipComponent={
                 <Tooltip
+                
                   theme={{
                     shape: {width: 0, height: 0},
                     formatter: v => (

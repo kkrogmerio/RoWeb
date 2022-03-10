@@ -21,9 +21,20 @@ export default class Dish extends Component {
               ${this.props.dishPrice}
             </Text>
           </View>
+          <LinearGradient
+                      end={{x: 0.0, y: 1}}
+                      start={{x: 0.0, y: 0.0}}
+                      colors={[
+                        'rgba(0, 0, 0, 0)',
+                        'rgba(0, 0, 0, 0.5)',
+                        'rgba(0, 0, 0, 0.75)',
+                      ]}>
           <View style={styles.dishOverlay}>
+          
             <Text style={fontStyle.fontDetailsBox}>{this.props.dishName}</Text>
+            
           </View>
+          </LinearGradient>
         </FastImage>
       </View>
     );
@@ -38,20 +49,27 @@ const styles = StyleSheet.create({
     marginLeft: 20.5,
   },
   dishPrice: {
+ 
+    
     width: 51,
     height: 22,
+    display:'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginLeft: 99,
     paddingTop: 5,
-    paddingHorizontal: 6.5,
-    paddingBottom: 2.5,
     backgroundColor: colors.red,
+    marginBottom:80
   },
   dishOverlay: {
     width: 150,
     height: 34,
-    marginTop: 80,
+    
     paddingLeft: 9,
-
-    opacity: 0.8,
+    display:'flex',
+    justifyContent: 'flex-end',
+    paddingBottom:4
+    
+  
   },
 });

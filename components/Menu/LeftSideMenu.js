@@ -44,7 +44,7 @@ class LeftSideMenu extends Component {
       <View style={styles.leftMenu}>
         <View>
           <Image
-            style={[styles.iconMenu, {marginTop: 0}]}
+            style={[styles.iconMenu, {marginTop: 0,opacity:1}]}
             source={require('../../assets/icons/icon_food_active.png')}
           />
 
@@ -87,8 +87,9 @@ export default connect(
 )(LeftSideMenu);
 const styles = StyleSheet.create({
   leftMenu: {
-    flex: 0.12,
-    backgroundColor: colors.dark,
+    flex: 0.10,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    
     alignItems: 'center',
     paddingVertical: 40,
     justifyContent: 'space-between',
@@ -97,7 +98,8 @@ const styles = StyleSheet.create({
     height: 'auto',
     transform: [{rotate: '270deg'}],
     alignItems: 'center',
-    width: 'auto',
+    width: 'auto',  
+    opacity:1.5,
 
     flexDirection: 'row-reverse',
   },
@@ -106,12 +108,13 @@ const styles = StyleSheet.create({
     maxHeight: 40,
     resizeMode: 'contain',
     marginTop: 33,
+    opacity:0.4
   },
-  rotatedIcon:{
+  rotatedIcon: {
     maxWidth: 33,
     maxHeight: 33,
     resizeMode: 'contain',
     transform: [{rotate: '90deg'}],
   },
-  nextBiteIcon: {maxWidth: 80, maxHeight: 65, resizeMode: 'contain'}
+  nextBiteIcon: {maxWidth: 75, maxHeight: 61, resizeMode: 'contain'},
 });

@@ -1,6 +1,6 @@
 import {call, put} from 'redux-saga/effects';
-import {requestGetOrder} from '../requests/restaurantsOrder';
-import {SET_RESTAURANTS_ORDER} from '../../restaurants';
+import {requestGetOrder} from '../requests/restaurantOrder';
+import {SET_RESTAURANT_ORDER} from '../../restaurants';
 export function* handleGetOrder() {
   try {
     const response = yield call(requestGetOrder);
@@ -40,7 +40,7 @@ export function* handleGetOrder() {
       tables: tablesData,
     };
   
-    yield put({type: SET_RESTAURANTS_ORDER, orderData});
+    yield put({type: SET_RESTAURANT_ORDER, orderData});
   } catch (error) {
     throw new Error(error.message);
   }

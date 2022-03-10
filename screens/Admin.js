@@ -10,9 +10,10 @@ import {
   Evaluations,
 } from '../components/Admin/Tabs/index';
 const defaultConfiguration = {
+  WaiterSettings: {screen: WaiterSettings},
   CustomerSettings: {screen: CustomerSettings},
   MenuSettings: {screen: MenuSettings},
-  WaiterSettings: {screen: WaiterSettings},
+  
   Evaluations: {screen: Evaluations},
 };
 class Admin extends Component {

@@ -62,5 +62,9 @@ export default {
  menuDesc:{
     fontSize:14,
     color:'white'
+  },
+  menuFavorite: {
+    fontSize:8,
+    color:'white'
   }
 };

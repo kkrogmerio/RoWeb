@@ -22,7 +22,7 @@ export default class TopMenu extends Component {
           <Text
             style={[
               {fontSize: 17.5},
-              this.props.activeItem == key
+              this.props.activeItem === key
                 ? styles.activeTabText
                 : styles.inactiveTabText,
             ]}>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   inactiveTabText: {
-    color: colors.gray,
+    color: '#4e4e4e',
   },
   touchable: {
     height: '100%',

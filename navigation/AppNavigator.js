@@ -69,7 +69,7 @@ class AppNavigator extends React.Component {
   }
   configureNavigator() {
     return createLeftNavigator(defaultConfiguration, {
-      initialRouteName: 'Menu',
+      initialRouteName: 'Floor',
       tabBarComponent: () => {
         return null;
       },

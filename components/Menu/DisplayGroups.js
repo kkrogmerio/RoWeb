@@ -37,21 +37,25 @@ class DisplayGroups extends Component {
     this.props.navigation.navigate('DisplayDishes');
   }
   render() {
+    console.log("this.props.items)")
     return (
       <View style={styles.groupsPanel}>
+          <Image style={styles.imageBackground} source={require('../../assets/icons/backgroundCustomer.png')}/>
         <View>
           <FlatList
             horizontal
+            showsHorizontalScrollIndicator={false}
             contentContainerStyle={{paddingHorizontal: 80}}
             data={this.props.items}
             renderItem={({item}) => (
+              <View style={styles.imageShadow}>
               <TouchableWithoutFeedback
                 onPress={() => this.showGroupMenu(item.id)}>
                 <FastImage
                   source={{uri: item.imageUrl}}
                   style={styles.groupImage}>
                   <LinearGradient
-                    end={{x: 0.0, y: 0.2}}
+                    end={{x: 0.0, y: 0.6}}
                     start={{x: 0.0, y: 0.0}}
                     colors={[
                       'rgba(0, 0, 0, 0)',
@@ -68,6 +72,7 @@ class DisplayGroups extends Component {
                   </LinearGradient>
                 </FastImage>
               </TouchableWithoutFeedback>
+              </View>
             )}
           />
         </View>
@@ -83,15 +88,21 @@ const styles = StyleSheet.create({
   groupsPanel: {
     flex: 40,
     backgroundColor: colors.dark,
-
+  
     justifyContent: 'center',
   },
   groupImage: {
     display: 'flex',
     width: 335,
     height: 535,
+    borderRadius:5,
     marginHorizontal: 30,
     justifyContent: 'flex-end',
   },
-  menuGradientLayou: {height: 180, padding: 20,paddingTop:25}
+  imageBackground:{width:'100%',height:'100%',position:'absolute',backgroundColor:'rgba(0,0,0,0.4)'},
+  imageShadow:{shadowColor: 'rgba(0, 0, 0, 0.8)',
+  shadowOffset: {width: 13, height: 15},
+  shadowOpacity: 0.5,
+  shadowRadius: 5},
+  menuGradientLayou: {height: 180, padding: 20, paddingTop: 25},
 });

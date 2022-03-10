@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {GET_RESTAURANT_MENU} from '../redux/restaurants';
-import {GET_RESTAURANTS_ORDER} from '../redux/restaurants';
+import {GET_RESTAURANT_ORDER} from '../redux/restaurants';
 import {ActivityIndicator, StyleSheet, View, Text} from 'react-native';
 import Header from '../components/UI/Header';
 import colors from '../constants/colors';
@@ -10,11 +10,11 @@ import OrderSpace from '../components/Floor/Order/OrderSpace';
 import chronometer from '../signletons/Chronometer';
 import SearchBar from '../components/UI/SearchBar';
 import SectionSeparator from '../components/UI/SectionSeparator';
-import BezierLineChart from '../components/Admin/Customers/BezierLineChart';
+
 const mapStateToProps = state => {
   return {
     restaurantMenu: state.restaurants.restaurantMenu,
-    restaurantsOrder: state.restaurants.restaurantsOrder,
+    restaurantsOrder: state.restaurants.restaurantOrder,
   };
 };
 
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
       dispatch({type: GET_RESTAURANT_MENU});
     },
     getRestaurantsOrder: () => {
-      dispatch({type: GET_RESTAURANTS_ORDER});
+      dispatch({type: GET_RESTAURANT_ORDER});
     },
   };
 };
@@ -124,7 +124,7 @@ class Floor extends React.Component {
       borderRadius: 14.5,
       backgroundColor:
         categoryId == this.state.selectedCategory ? colors.red : colors.gray,
-      borderWidth: categoryId == this.state.selectedCategory ? 1 : 0,
+      borderWidth: categoryId == this.state.selectedCategory ? 0 : 0,
       borderColor: categoryId == this.state.selectedCategory ? '' : colors.gray,
     };
     return categoryButtonDesign;

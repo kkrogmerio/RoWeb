@@ -48,10 +48,10 @@ function createLeftNavigator(routeConfigMap, stackConfig = {}) {
             />
           </View>}
 
-          <View style={{flex: 14}}>
+          <View style={{flex: 17}}>
             <Navigator
               onNavigationStateChange={this.setRoute}
-              // navigate={this.navigate}
+           
               ref={element => (this.navigator = element?._navigation)}
             />
           </View>

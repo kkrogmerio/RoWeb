@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
 } from 'react-native';
+
 import FastImage from 'react-native-fast-image';
 import {connect} from 'react-redux';
 import colors from '../../constants/colors';
@@ -92,8 +93,10 @@ class DisplayDishes extends Component {
     this.getGroupData();
   }
   render() {
+    console.log("HEEER")
     return (
       <View style={styles.dishesPanel}>
+        <Image style={{width:'100%',height:'100%',position:'absolute',opacity:0.9}} source={require('../../assets/icons/backgroundCustomer.png')}/>
         {this.state.currentDishes && this.state.filteredCategories && (
           <View>
             <View style={styles.categoriesBar}>
@@ -126,22 +129,10 @@ class DisplayDishes extends Component {
               renderItem={({item}) => (
                 <View style={{flexDirection: 'row-reverse'}}>
                   <View
-                    style={[
-                      styles.dishIcon,
-                      {
-                        top: 100,
-                        backgroundColor: colors.dark,
-                        justifyContent: 'center',
-                      },
-                    ]}>
+                    style={styles.dishFavoriteIcon}>
                     <TouchableWithoutFeedback
                       onPress={() => this.setFavouriteItem(item.rank)}>
-                      <View
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                        }}>
+                      <View style={styles.centeredItems}>
                         <Image
                           style={styles.heartIconLayout}
                           source={
@@ -150,7 +141,7 @@ class DisplayDishes extends Component {
                               : require('../../assets/icons/icon_heart_inactive.png')
                           }
                         />
-                        <Text style={fontStyle.menuDesc}>
+                        <Text style={fontStyle.menuFavorite}>
                           {this.state.favoriteItems[item.rank]
                             ? item.id + 1
                             : item.id}
@@ -161,23 +152,24 @@ class DisplayDishes extends Component {
                   <View style={styles.dishIcon}>
                     <Image
                       style={{maxWidth: '100%', maxHeight: '100%'}}
-                      source={require('../../assets/icons/icon_increase_quantity.png')}
+                      source={require('../../assets/icons/plus.png')}
                     />
                   </View>
+                  <View style={styles.imageShadow}>
                   <FastImage
                     source={{uri: item.imageUrl}}
                     style={styles.dishImage}>
                     <LinearGradient
-                      end={{x: 0.0, y: 0.4}}
+                      end={{x: 0.0, y: 0.2}}
                       start={{x: 0.0, y: 0.0}}
                       colors={[
                         'rgba(0, 0, 0, 0)',
                         'rgba(0, 0, 0, 0.5)',
                         'rgba(0, 0, 0, 0.75)',
                       ]}>
-                      <View style={{height: 150, padding: 15}}>
+                      <View style={styles.innerGradientLayout}>
                         <View style={{display: 'flex', flexDirection: 'row'}}>
-                          <View style={{flex: 4}}>
+                          <View style={{flex: 5}}>
                             <Text style={fontStyle.menuTitle}>
                               {item.name}
                               {'\n'}
@@ -186,12 +178,7 @@ class DisplayDishes extends Component {
                               {item.description}
                             </Text>
                           </View>
-                          <View
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'center',
-                              alignItems: 'center',
-                            }}>
+                          <View style={[styles.centeredItems,{flex:1.60}]}>
                             <Text style={fontStyle.menuTitle}>
                               {item.price} KD
                             </Text>
@@ -200,6 +187,7 @@ class DisplayDishes extends Component {
                       </View>
                     </LinearGradient>
                   </FastImage>
+                  </View>
                 </View>
               )}
               keyExtractor={item => item.name}
@@ -217,18 +205,29 @@ const styles = StyleSheet.create({
     backgroundColor: colors.second,
   },
   categoriesBar: {
+
     height: 90,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: 'rgba(0,0,0,0.4)',
+  
+
   },
   dishImage: {
-    width: 380,
-    height: 240,
+    width: 370,
+    height: 260,
     margin: 35,
     bottom: 10,
+    marginRight: 45,
+    borderRadius:5,
     justifyContent: 'flex-end',
+    
+    
   },
+  imageShadow:{shadowColor: 'rgba(0, 0, 0, 0.8)',
+  shadowOffset: {width: 7.5, height: 15},
+  shadowOpacity: 0.5,
+  shadowRadius: 5},
   dishIcon: {
     position: 'absolute',
     zIndex: 2,
@@ -236,6 +235,27 @@ const styles = StyleSheet.create({
     height: 62,
     borderRadius: 31,
     top: 240,
+    left:12
+   
   },
-  heartIconLayout: {height: 30, width: 22, resizeMode: 'contain'},
+  
+   dishFavoriteIcon: {
+    position: 'absolute',
+    zIndex: 2,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    left:16,
+      top: 165,
+      backgroundColor: colors.dark,
+      justifyContent: 'center',
+    },
+ 
+  heartIconLayout: {height: 26, width: 16, resizeMode: 'contain'},
+  centeredItems: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  innerGradientLayout: {display:'flex',height: 'auto', padding: 25, justifyContent: 'flex-end'},
 });

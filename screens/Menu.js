@@ -41,7 +41,7 @@ class Menu extends Component {
     
   }
   componentDidMount() {
-    console.log("RATAT")
+    
     this.setState({isLoading:true});
     this.props.getRestaurantMenu();
     this.setState({isLoading:false});

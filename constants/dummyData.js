@@ -1,8 +1,8 @@
 export const trafficChartDumy = {
-  HourChart: [22, 36, 41, 31, 39, 44, 33],
-  DayChart: [22, 36, 20, 35, 40, 60, 80, 99],
-  WeekChart: [22, 22, 33, 11, 32],
-  MonthChart: [14, 14, 21, 30, 42, 27, 18],
+  HourChart: [22, 36, 41, 31, 39, 44],
+  DayChart: [22, 36, 20, 35, 40, 60, 80],
+  WeekChart: [22, 22, 33, 11],
+  MonthChart: [14, 14, 21, 30, 42, 27],
 };
 export const loremIpsum="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, nisl vel sollicitudin ultricies, est purus dictum orci, nec pretium ipsum ex eu lorem. "
 export const getDishesDummyData =()=> [

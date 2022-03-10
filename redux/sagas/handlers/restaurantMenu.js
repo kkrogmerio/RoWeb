@@ -5,10 +5,11 @@ import {SET_RESTAURANT_MENU} from '../../restaurants';
 
 export function* handleGetMenu() {
   try {
+ 
     const response = yield call(requestGetMenu);
-   
-    const {dishes, groups, categories} = response.val();
 
+    const {dishes, groups, categories} = response.val();
+    
     
     let dishesData = [];
 

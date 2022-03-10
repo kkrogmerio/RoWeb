@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet,Image } from 'react-native';
 import fontStyle from '../../../constants/fontStyle';
+import {formatNumberTwoDigits} from '../../../helpers/numberFormatter';
 export default class OrderSpecs extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {serviceOrder:15,tableNumber:4
     };
+    
   }
 
   render() {
@@ -33,7 +35,7 @@ export default class OrderSpecs extends Component {
                 ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}>
-              {scalars.connectionCode}
+              {formatNumberTwoDigits(scalars.connectionCode)}
             </Text>
           </View>
           <View>
@@ -50,7 +52,8 @@ export default class OrderSpecs extends Component {
                 ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}
-            />
+            >
+              </Text>
           </View>
           <View style={{backgroundColor:'#ef4923',marginVertical:22,padding:7,borderRadius:17}}>
             <Image source={image} resizeMode='contain' style={{width:27,height:27}}/>
@@ -77,7 +80,7 @@ export default class OrderSpecs extends Component {
                 ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}>
-              {scalars.serviceOrder}
+              {formatNumberTwoDigits(this.state.serviceOrder)}
             </Text>
           </View>
           <View>
@@ -94,7 +97,7 @@ export default class OrderSpecs extends Component {
                 ...fontStyle.fontPrimary,
                 marginTop: 2,
               }}>
-              {scalars.partySize}
+              {formatNumberTwoDigits(scalars.partySize)}
             </Text>
           </View>
           <View>
@@ -105,14 +108,17 @@ export default class OrderSpecs extends Component {
               }}>
               Table Number
             </Text>
+            <View style={{borderWidth:1,borderRadius:10,alignSelf:'flex-start',paddingHorizontal:7.5,display:'flex',alignItems: 'center',justifyContent:'center'}}>
             <Text
               style={{
                 ...styles.orderSpecsLayout,
                 ...fontStyle.fontPrimary,
+                fontSize:17,
                 marginTop: 2,
               }}>
-              {scalars.tableNumber}
+              {formatNumberTwoDigits(this.state.tableNumber)}
             </Text>
+            </View>
           </View>
         </View>
         <View style={{marginLeft: 9.5}}>
@@ -131,7 +137,7 @@ export default class OrderSpecs extends Component {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <View style={{flex: 1}}>
+          <View style={{flex: 1.2}}>
             <Text
               style={{
                 ...styles.orderSpecsLayout,

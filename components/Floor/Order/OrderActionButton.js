@@ -26,6 +26,7 @@ export default class OrderActionButton extends Component {
             style={[
               styles.orderActionImage,
               this.props.buttonDefinition === 'Issue Payment' && {height: 18},
+              this.props.buttonDefinition === 'Clear Table'&&{width:50,height:50,resizeMode: 'contain'}
             ]}
             source={this.props.orderActionImage}
           />
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 12.5,
     marginBottom: 3,
   },
+
   orderActionImage: {
     width: 24,
     height: 24,

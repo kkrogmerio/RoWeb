@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet } from 'react-native';
 import fontStyle from '../../../constants/fontStyle';
-
+import {formatNumberTwoDigits} from '../../../helpers/numberFormatter';
 export default class OrderItem extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ export default class OrderItem extends Component {
                 ...styles.orderSpecsLayout,
                 ...fontStyle.fontOrderName,
               }}>
-              {this.props.quantity}
+              {formatNumberTwoDigits(this.props.quantity)}
             </Text>
           </View>
           <View style={{flex: 4}}>
@@ -37,7 +37,7 @@ export default class OrderItem extends Component {
               {this.props.itemName}
             </Text>
             {this.props.orderToppings.length > 0 && (
-              <Text>Toppings:</Text>
+              <Text style={{...fontStyle.fontDataSpecifications}}>Toppings:</Text>
             )}
             {this.props.orderToppings &&
               this.props.orderToppings.map(ie => (
@@ -58,6 +58,7 @@ export default class OrderItem extends Component {
                 style={{
                   ...styles.orderSpecsLayout,
                   ...fontStyle.fontDiscountItem,
+                  textDecorationLine: 'line-through',
                   marginTop: 18,
                 }}>
                 $

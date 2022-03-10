@@ -14,7 +14,7 @@ export default class Header extends Component {
     
     return (
       <View style={styles.header}>
-        {this.props.floor && ( <DisplayTime textColor="white"/>)}
+        {this.props.floor && ( <DisplayTime textColor="white" floor/>)}
         {this.props.admin&&<TopMenu menu={this.props.menu} navigate={this.props.navigate} activeItem={this.props.activeItem}/> }
         {this.props.children}
       </View>
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     height: 60,
 
     // flex: 1,
-    backgroundColor: '#222',
+    backgroundColor: '#252525',
     flexDirection: 'row',
     alignItems: 'center',
   },

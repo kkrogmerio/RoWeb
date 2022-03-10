@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image,TouchableWithoutFeedback} from 'react-native';
 import fontStyle from '../../constants/fontStyle';
 import {STATUS_TABLE} from '../../constants/strings';
 import DisplayTime from '../UI/DisplayTime';
@@ -46,13 +46,14 @@ export default class TableStatus extends Component {
             source={require('../../assets/icons/nowaiters.png')}
           />
         </View>
-        <DisplayTime textColor={'black'} />
+        
+        <DisplayTime textColor={'#22222'} />
       </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  statusScreen: {borderWidth: 1, borderColor: 'black', flexDirection: 'row'},
+  statusScreen: {borderWidth: 0.7, borderColor: 'black', flexDirection: 'row'},
   statusTable: {
     width: 116,
 

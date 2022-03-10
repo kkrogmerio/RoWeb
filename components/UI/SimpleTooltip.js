@@ -31,10 +31,11 @@ const styles = StyleSheet.create({
   tooltipStyle: {
     display: 'flex',
     position: 'absolute',
-
+    borderRadius:3.5,
   
     paddingVertical:5,
     paddingHorizontal:10,
+    paddingRight:15,
     backgroundColor: 'black',
 
     flexDirection: 'column-reverse',

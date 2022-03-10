@@ -52,7 +52,7 @@ export default class LeftMenu extends React.PureComponent {
                         <Image
                             source={ item.icon }
                             resizeMode={ 'contain' }
-                            style={{ width: 48, height: 48 }}/>
+                            style={{ width: 39, height: 39 }}/>
                         <Text style={ styles.menuText }>{ key }</Text>
                     </View>
                 </TouchableOpacity>

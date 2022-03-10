@@ -12,12 +12,19 @@ export default class Evaluations extends Component {
     super(props);
     this.state = {
     };
+    this.scrollViewRef=React.createRef();
+    this.toNextPage=this.toNextPage.bind(this);
+    this.screenIndex=0
   }
-
+  toNextPage = () => {
+    this.screenIndex += 1;
+    
+    this.scrollViewRef.current?.scrollTo({x: 50 * this.screenIndex, animated: true});
+ };
   render() {
     return (
       <View style={{flex:1}}>
-      <ScrollView horizontal style={styles.innerAdmin}>
+      <ScrollView ref={this.scrollViewRef} horizontal style={styles.innerAdmin}>
         <Customers/>
         <SectionSeparator/>
         <Waiters/>
@@ -26,7 +33,7 @@ export default class Evaluations extends Component {
         <SectionSeparator/>
         <Branch/>
         </ScrollView>
-        <TableStatus/>
+        <TableStatus toNextPage={this.toNextPage}/>
         </View>
     );
   }

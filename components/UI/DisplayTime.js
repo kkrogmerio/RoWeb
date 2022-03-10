@@ -32,7 +32,7 @@ export default class TopMenu extends Component {
   render() {
     if (this.state.currentTime)
       return (
-        <View style={{display: 'flex', flexDirection: 'row'}}>
+        <View style={[{display: 'flex', flexDirection: 'row'},!this.props.floor&&{marginLeft:55}]}>
           <View style={{...styles.showHour}}>
             <Text
               style={[fontStyle.fontShowTime, {color: this.props.textColor}]}>
