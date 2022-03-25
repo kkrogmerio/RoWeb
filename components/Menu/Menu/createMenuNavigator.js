@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import {MENU} from '../../constants/strings';
+import {MENU} from '../../../constants/strings';
 import {createStackNavigator} from 'react-navigation';
 import {LeftSideMenu} from '.';
 export default function createMenuNavigator(routeConfigMap, stackConfig = {}) {

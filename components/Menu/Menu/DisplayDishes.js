@@ -8,11 +8,11 @@ import {
   FlatList,
   Image,
 } from 'react-native';
-
+import MenuBackgroundImage from '../../UI/MenuBackgroundImage';
 import FastImage from 'react-native-fast-image';
 import {connect} from 'react-redux';
-import colors from '../../constants/colors';
-import fontStyle from '../../constants/fontStyle';
+import colors from '../../../constants/colors';
+import fontStyle from '../../../constants/fontStyle';
 import LinearGradient from 'react-native-linear-gradient';
 const mapStateToProps = state => {
   return {
@@ -96,7 +96,7 @@ class DisplayDishes extends Component {
     console.log("HEEER")
     return (
       <View style={styles.dishesPanel}>
-        <Image style={{width:'100%',height:'100%',position:'absolute',opacity:0.9}} source={require('../../assets/icons/backgroundCustomer.png')}/>
+       <MenuBackgroundImage/>
         {this.state.currentDishes && this.state.filteredCategories && (
           <View>
             <View style={styles.categoriesBar}>
@@ -137,8 +137,8 @@ class DisplayDishes extends Component {
                           style={styles.heartIconLayout}
                           source={
                             this.state.favoriteItems[item.rank]
-                              ? require('../../assets/icons/icon_heart_active.png')
-                              : require('../../assets/icons/icon_heart_inactive.png')
+                              ? require('../../../assets/icons/icon_heart_active.png')
+                              : require('../../../assets/icons/icon_heart_inactive.png')
                           }
                         />
                         <Text style={fontStyle.menuFavorite}>
@@ -152,7 +152,7 @@ class DisplayDishes extends Component {
                   <View style={styles.dishIcon}>
                     <Image
                       style={{maxWidth: '100%', maxHeight: '100%'}}
-                      source={require('../../assets/icons/plus.png')}
+                      source={require('../../../assets/icons/plus.png')}
                     />
                   </View>
                   <View style={styles.imageShadow}>

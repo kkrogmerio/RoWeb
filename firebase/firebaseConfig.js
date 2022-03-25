@@ -6,6 +6,7 @@ export default {
     "storageBucket": "nextbite-newplatform.appspot.com",
     "messagingSenderId": "290352754231"
 }
+export const overviewDatabaseUrl="https://nextbite-newplatform-default-rtdb.firebaseio.com"
 export const dummyRestaurantFirebase={
     restaurantId:517,
     branchId:1763,

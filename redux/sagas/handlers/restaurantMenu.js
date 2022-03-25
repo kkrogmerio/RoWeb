@@ -1,13 +1,16 @@
 import {call, put} from 'redux-saga/effects';
 import {requestGetMenu} from '../requests/restaurantMenu';
 
-import {SET_RESTAURANT_MENU} from '../../restaurants';
+import {SET_RESTAURANT_MENU} from '../../reducers/restaurantMenu';
 
-export function* handleGetMenu() {
+export function* handleGetMenu(data) {
   try {
- 
-    const response = yield call(requestGetMenu);
-
+    let response;
+    if(data.payload!==undefined)
+    response=data.payload;
+    else
+    response = yield call(requestGetMenu);
+    
     const {dishes, groups, categories} = response.val();
     
     

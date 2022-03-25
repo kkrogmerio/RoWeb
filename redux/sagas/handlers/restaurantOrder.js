@@ -1,6 +1,6 @@
 import {call, put} from 'redux-saga/effects';
 import {requestGetOrder} from '../requests/restaurantOrder';
-import {SET_RESTAURANT_ORDER} from '../../restaurants';
+import {SET_RESTAURANT_ORDER} from '../../reducers/restaurantMenu';
 export function* handleGetOrder() {
   try {
     const response = yield call(requestGetOrder);

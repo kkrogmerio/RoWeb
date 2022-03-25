@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {GET_RESTAURANT_MENU} from '../redux/restaurants';
-import {GET_RESTAURANT_ORDER} from '../redux/restaurants';
+import {GET_RESTAURANT_MENU} from '../redux/reducers/restaurantMenu';
+import {GET_RESTAURANT_ORDER} from '../redux/reducers/restaurantMenu';
 import {ActivityIndicator, StyleSheet, View, Text} from 'react-native';
 import Header from '../components/UI/Header';
 import colors from '../constants/colors';

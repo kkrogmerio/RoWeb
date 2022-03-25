@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-
+import React, {Component} from 'react';
+import {View, Text} from 'react-native';
+import MapView from 'react-native-maps';
 class Waitlist extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
-   
     return (
-      <View>
-        <Text> Waitlist </Text>
-      </View>
+      <View/>
     );
   }
 }

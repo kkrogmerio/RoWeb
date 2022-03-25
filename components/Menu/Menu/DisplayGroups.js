@@ -7,13 +7,14 @@ import {
   FlatList,
   TouchableWithoutFeedback,
 } from 'react-native';
+import MenuBackgroundImage from '../../UI/MenuBackgroundImage';
 import FastImage from 'react-native-fast-image';
-import colors from '../../constants/colors';
-import {loremIpsum} from '../../constants/dummyData';
+import colors from '../../../constants/colors';
+import {loremIpsum} from '../../../constants/dummyData';
 import {connect} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
-import fontStyle from '../../constants/fontStyle';
-import {SET_MENU_CURRENT_GROUP} from '../../redux/restaurants';
+import fontStyle from '../../../constants/fontStyle';
+import {SET_MENU_CURRENT_GROUP} from '../../../redux/reducers/restaurantMenu';
 const mapStateToProps = state => {
   return {
     items: state.restaurants.restaurantMenu.groups,
@@ -37,10 +38,10 @@ class DisplayGroups extends Component {
     this.props.navigation.navigate('DisplayDishes');
   }
   render() {
-    console.log("this.props.items)")
+
     return (
       <View style={styles.groupsPanel}>
-          <Image style={styles.imageBackground} source={require('../../assets/icons/backgroundCustomer.png')}/>
+         <MenuBackgroundImage/>
         <View>
           <FlatList
             horizontal

@@ -10,7 +10,7 @@ import {connect} from 'react-redux';
 import {MENU} from '../../constants/strings';
 import colors from '../../constants/colors';
 import fontStyle from '../../constants/fontStyle';
-import {SET_MENU_CURRENT_GROUP} from '../../redux/restaurants';
+import {SET_MENU_CURRENT_GROUP} from '../../redux/reducers/restaurantMenu';
 const mapStateToProps = state => {
   return {
     items: state.restaurants.restaurantMenu.groups,
@@ -36,34 +36,43 @@ class LeftSideMenu extends Component {
   }
   componentDidMount() {}
   render() {
-    const groupName = this.props.items.find(ie => ie.id == this.props.groupId)
+    let sideMenuTitle;
+    if(this.props.nameMenu==='Menu')
+    sideMenuTitle = this.props.items.find(ie => ie.id == this.props.groupId)
       ? this.props.items.find(ie => ie.id == this.props.groupId).name
       : MENU.DEFAULT_HEADER;
+      else
+      sideMenuTitle=this.props.nameMenu;
 
     return (
       <View style={styles.leftMenu}>
         <View>
+          <TouchableWithoutFeedback onPress={()=>this.props.navigate('Menu')}>
           <Image
             style={[styles.iconMenu, {marginTop: 0,opacity:1}]}
             source={require('../../assets/icons/icon_food_active.png')}
           />
-
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={()=>this.props.navigate('Gallery')}>
           <Image
             style={styles.iconMenu}
             source={require('../../assets/icons/imageicon.png')}
           />
-
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={()=>this.props.navigate('Restaurant')}>
           <Image
             style={styles.iconMenu}
             source={require('../../assets/icons/info.png')}
           />
+          </TouchableWithoutFeedback>
         </View>
+        
         <View style={{width: 300}}>
           <View style={styles.groupTitle}>
             <Text style={[fontStyle.menuHeader, {marginLeft: 20}]}>
-              {groupName}
+              {sideMenuTitle}
             </Text>
-            {groupName !== MENU.DEFAULT_HEADER && (
+            {sideMenuTitle !== MENU.DEFAULT_HEADER && this.props.nameMenu==='Menu'&& (
               <TouchableWithoutFeedback onPress={this.backToMenu}>
                 <Image
                   style={styles.rotatedIcon}

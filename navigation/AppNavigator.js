@@ -10,7 +10,7 @@ import Support from '../screens/Support';
 import Logout from '../screens/Logout';
 import {StyleSheet, View} from 'react-native';
 import createLeftNavigator from '../helpers/createLeftNavigator';
-import {CONFIGURE_FIREBASE} from '../redux/restaurants';
+import {CONFIGURE_FIREBASE} from '../redux/reducers/restaurantMenu';
 import {connect} from 'react-redux';
 const defaultConfiguration = {
   Admin: {
@@ -69,7 +69,7 @@ class AppNavigator extends React.Component {
   }
   configureNavigator() {
     return createLeftNavigator(defaultConfiguration, {
-      initialRouteName: 'Floor',
+      initialRouteName: 'Menu',
       tabBarComponent: () => {
         return null;
       },
