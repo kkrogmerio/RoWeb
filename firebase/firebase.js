@@ -12,8 +12,11 @@ import { SET_RESTAURANT_MENU } from "../redux/reducers/restaurantMenu";
         this.configurate=this.configurate.bind(this);
     }
     subscribeToFirebase(){
-            // this.menuDatabase.ref().on('value',snapshot=>store.dispatch({type:SET_RESTAURANT_MENU,payload:snapshot}))
-            // this.overviewDatabase.ref().on('value',snapshot=>store.dispatch({type:SET_RESTAURANT_OVERVIEW,payload:snapshot}))
+            console.log("HEREEEED")
+            this.menuDatabase.ref(`viewStore/${ this.restaurantId }/menus/${this.menuId}`).on('value',snapshot=>store.dispatch({type:SET_RESTAURANT_MENU,payload:snapshot}))
+            this.overviewDatabase.ref('/about-us').on('value',snapshot=>store.dispatch({type:SET_RESTAURANT_OVERVIEW,payload:snapshot}),function(error) {
+                console.error(error);
+            });
         }
     configurate(restaurantId,branchId,menuId,menuConstraintId){
         this.restaurantId=restaurantId;

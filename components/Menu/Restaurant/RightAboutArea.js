@@ -12,7 +12,7 @@ export default class RightAboutArea extends Component {
     return (
       <View style={{flex:1}}>
         <ConnectSocial/>
-        <View style={{marginVertical:15}}/>
+        <View style={{marginVertical:10}}/>
         <OpenHours/>
       </View>
     );

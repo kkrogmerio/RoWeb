@@ -22,11 +22,11 @@ class LeftAboutArea extends Component {
     return (
       <View style={{flex: 2}}>
         <RestaurantOverview backgroundImage={this.props.backgroundImage} />
-        <View style={{marginVertical: 15}} />
+        <View style={{marginVertical: 10}} />
         <View style={{flex: 1, flexDirection: 'row'}}>
           <Photos />
-          <View style={{marginHorizontal: 15}} />
-          <Branches />
+          <View style={{marginHorizontal: 10}} />
+          <Branches branches={this.props.branches}/>
         </View>
       </View>
     );

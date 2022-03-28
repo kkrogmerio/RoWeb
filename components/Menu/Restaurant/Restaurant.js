@@ -11,10 +11,10 @@ export default class Restaurant extends Component {
 
   render() {
     return (
-      <View style={{flex:1,flexDirection: 'row',padding:30}}>
+      <View style={{flex:1,flexDirection: 'row',padding:20}}>
        <MenuBackgroundImage/>
         <LeftAboutArea/>
-        <View style={{marginHorizontal:15}}/>
+        <View style={{marginHorizontal:10}}/>
         <RightAboutArea/>
       </View>
     );

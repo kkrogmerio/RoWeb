@@ -5,15 +5,20 @@ import {SET_RESTAURANT_OVERVIEW} from '../../reducers/restaurantOverview';
 
 export function* handleGetOverview(data) {
   try {
+      
     let response;
     if(data.payload!==undefined)
     response=data.payload;
     else
     response = yield call(requestGetOverview);
     response=response.val();
+    console.log(response);
     let branches=[];
+    let n=0;
     for(let branch of response.branches){
-        branches.push(parseBranches(branch));
+        
+        branches.push(parseBranches(branch,n));
+        n+=1;
     }
     let connect=parseConnect(response.connect)
     let photos=[];
@@ -22,8 +27,10 @@ export function* handleGetOverview(data) {
         photos.push(photo);
     }
     let programs=[];
+    
     for(let program of response.program){
         programs.push(parsePrograms(program))
+        
     }
     let socialmedia=parseSocialMedia(response.socialmedia)
     let payload={
@@ -41,12 +48,14 @@ export function* handleGetOverview(data) {
     console.error(e);
   }
 }
-function parseBranches(branch){
+function parseBranches(branch,n){
     return {
         address: branch.address,
         latitude: branch.latitude,
         longitude: branch.longitude,
-        name: branch.name
+        name: branch.name,
+        pinLocationIcon: n==0?'https://www.linkpicture.com/q/pin-location1.png':'https://www.linkpicture.com/q/pin-location2.png',
+        goToIcon:n==0?'https://www.linkpicture.com/q/go-to-location.png':'https://www.linkpicture.com/q/go-to-location2_2.png'
     }
 }
 function parseConnect(connect){
@@ -60,7 +69,7 @@ function parseConnect(connect){
 function parsePrograms(program){
     return {
         days:program.days,
-        hours:program.hours
+        hours:program.hours,
     }
 }
 function parseSocialMedia(socialmedia){

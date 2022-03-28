@@ -66,5 +66,6 @@ export default {
   menuFavorite: {
     fontSize:8,
     color:'white'
-  }
+  },
+  
 };
