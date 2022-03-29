@@ -9,6 +9,7 @@ export default class Gallery extends Component {
   }
 
   render() {
+    console.log(this.props.navigation.state.params.linkToPhoto,"UAAAU")
     return (
       <View style={{flex:1}}>
         <MenuBackgroundImage/>

@@ -10,10 +10,11 @@ export default class Restaurant extends Component {
   }
 
   render() {
+    console.log(this.props,"restauranttt")
     return (
       <View style={{flex:1,flexDirection: 'row',padding:20}}>
        <MenuBackgroundImage/>
-        <LeftAboutArea/>
+        <LeftAboutArea navigate={this.props.navigation.navigate}/>
         <View style={{marginHorizontal:10}}/>
         <RightAboutArea/>
       </View>

@@ -10,6 +10,9 @@ const mapStateToProps = state => {
     photos: state.restaurantOverview.photos,
     branches: state.restaurantOverview.branches,
     backgroundImage: state.restaurantOverview.backgroundImage,
+    restaurantName: state.restaurantOverview.name,
+    description: state.restaurantOverview.description,
+    logo: state.restaurantOverview.logo,
   };
 };
 class LeftAboutArea extends Component {
@@ -21,12 +24,17 @@ class LeftAboutArea extends Component {
   render() {
     return (
       <View style={{flex: 2}}>
-        <RestaurantOverview backgroundImage={this.props.backgroundImage} />
+        <RestaurantOverview
+          backgroundImage={this.props.backgroundImage}
+          restaurantName={this.props.restaurantName}
+          restaurantDescription={this.props.description}
+          restaurantLogo={this.props.logo}
+        />
         <View style={{marginVertical: 10}} />
         <View style={{flex: 1, flexDirection: 'row'}}>
-          <Photos />
+          <Photos navigateToGallery={this.props.navigate} photos={this.props.photos}/>
           <View style={{marginHorizontal: 10}} />
-          <Branches branches={this.props.branches}/>
+          <Branches branches={this.props.branches} />
         </View>
       </View>
     );
