@@ -23,6 +23,7 @@ const mapStateToProps = state => {
   return {
     restaurantMenu: state.restaurants.restaurantMenu,
     currentGroup: state.restaurants.currentGroup,
+  
   };
 };
 const mapDispatchToProps = dispatch => {
@@ -33,6 +34,7 @@ const mapDispatchToProps = dispatch => {
     getRestaurantOverview: () => {
       dispatch({type: GET_RESTAURANT_OVERVIEW});
     },
+    
   };
 };
 class Menu extends Component {
@@ -96,7 +98,7 @@ class Menu extends Component {
       Gallery:{screen:Gallery},
       Restaurant: {screen: Restaurant},
 
-    },{ initialRouteName: 'Restaurant',
+    },{ initialRouteName: 'Menu',
     tabBarComponent: () => {
       return null;
     },})

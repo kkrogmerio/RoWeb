@@ -66,7 +66,9 @@ export default class Branches extends Component {
   };
   render() {
     let branches = this.props.branches;
-    console.log(this.state.mapViewLatitude, 'MAPVIEW');
+    if(branches===undefined) {
+      return <View/>
+    }
     return (
       <View style={styles.cardStyle}>
         <View style={styles.noMapAreaStyle}>

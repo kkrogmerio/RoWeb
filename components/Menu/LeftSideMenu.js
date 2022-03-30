@@ -11,10 +11,14 @@ import {MENU} from '../../constants/strings';
 import colors from '../../constants/colors';
 import fontStyle from '../../constants/fontStyle';
 import {SET_MENU_CURRENT_GROUP} from '../../redux/reducers/restaurantMenu';
+const TAB_MENU='Menu';
+const TAB_GALLERY='Gallery';
+const TAB_RESTAURANT='Restaurant';
 const mapStateToProps = state => {
   return {
     items: state.restaurants.restaurantMenu.groups,
     groupId: state.restaurants.currentGroupId,
+    restaurantName:state.restaurantOverview.name
   };
 };
 mapDispatchToProps = dispatch => {
@@ -41,6 +45,8 @@ class LeftSideMenu extends Component {
     sideMenuTitle = this.props.items.find(ie => ie.id == this.props.groupId)
       ? this.props.items.find(ie => ie.id == this.props.groupId).name
       : MENU.DEFAULT_HEADER;
+      else if(this.props.nameMenu==='Restaurant')
+        sideMenuTitle='About '+this.props.restaurantName
       else
       sideMenuTitle=this.props.nameMenu;
 
@@ -50,19 +56,19 @@ class LeftSideMenu extends Component {
           <TouchableWithoutFeedback onPress={()=>this.props.navigate('Menu')}>
           <Image
             style={[styles.iconMenu, {marginTop: 0,opacity:1}]}
-            source={require('../../assets/icons/icon_food_active.png')}
+            source={this.props.nameMenu===TAB_MENU? require('../../assets/icons/icon_food_active.png'):require('../../assets/icons/icon_food_inactive.png')}
           />
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={()=>this.props.navigate('Gallery')}>
           <Image
             style={styles.iconMenu}
-            source={require('../../assets/icons/imageicon.png')}
+            source={this.props.nameMenu===TAB_GALLERY? require('../../assets/icons/icon_gallery_active.png'):require('../../assets/icons/icon_gallery_inactive.png')}
           />
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={()=>this.props.navigate('Restaurant')}>
           <Image
             style={styles.iconMenu}
-            source={require('../../assets/icons/info.png')}
+            source={this.props.nameMenu===TAB_RESTAURANT? require('../../assets/icons/icon_about_active.png'):require('../../assets/icons/icon_about_inactive.png')}
           />
           </TouchableWithoutFeedback>
         </View>
