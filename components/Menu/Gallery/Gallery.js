@@ -16,6 +16,7 @@ import {
   ZOOM_PHOTO_IN_GALLERY,
   UNZOOM_PHOTO_IN_GALLERY,
 } from '../../../redux/reducers/restaurantOverview';
+import PhotoModal from './PhotoModal';
 const unzoomPhoto = () => {
   return {type: UNZOOM_PHOTO_IN_GALLERY};
 };
@@ -23,17 +24,16 @@ const zoommPhoto = () => {
   return {type: ZOOM_PHOTO_IN_GALLERY};
 };
 const photosStyles = [
-  {width: 160, height: 160,top:0},
-  {width: 160, height: 160,top:0, left: 160},
-  {width: 160, height: 160,top:0, left: 320},
-  {width: 450, height: 340,top:0, left: 480},
-  {width:480,height:480,top:160},
-  {width:300,height:300,top:340,left:480},
-  {width:150,height: 150,top:340,left:780},
-  {width:150,height: 150,top:490,left:780},
-  {width:300,height:600,top:640},
-  {width:630,height:600,top:640,left:300}
-
+  {width: 160, height: 160, top: 0},
+  {width: 160, height: 160, top: 0, left: 160},
+  {width: 160, height: 160, top: 0, left: 320},
+  {width: 450, height: 340, top: 0, left: 480},
+  {width: 480, height: 480, top: 160},
+  {width: 300, height: 300, top: 340, left: 480},
+  {width: 150, height: 150, top: 340, left: 780},
+  {width: 150, height: 150, top: 490, left: 780},
+  {width: 300, height: 600, top: 640},
+  {width: 630, height: 600, top: 640, left: 300},
 ];
 const mapStateToProps = state => {
   return {
@@ -55,10 +55,13 @@ class Gallery extends Component {
       <FastImage style={{width: 300, height: 300}} source={{uri: ie}} />
     ));
   };
-  calculateImageTop=(index)=>{
-     return (1240*parseInt(index/photosStyles.length)+photosStyles[index% photosStyles.length].top)
-  }
-   
+  calculateImageTop = index => {
+    return (
+      1240 * parseInt(index / photosStyles.length) +
+      photosStyles[index % photosStyles.length].top
+    );
+  };
+
   openGalleryPhoto = photoUrl => {
     this.setState({isModalVisible: true, openedGalleryPhoto: photoUrl});
   };
@@ -79,47 +82,30 @@ class Gallery extends Component {
   };
   render() {
     let photos = this.props.photos.reverse();
-     return (
+    return (
       <View style={{flex: 1}}>
-        <MenuBackgroundImage/>
-        <Modal isVisible={this.props.zoomPhoto || this.state.isModalVisible}>
-          <View
-            style={{
-              marginLeft: 90,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-            <TouchableWithoutFeedback onPress={() => this.unzoom()}>
-              <Image
-                style={{
-                  width: 60,
-                  height: 60,
-                  resizeMode: 'contain',
-                  marginBottom: 20,
-                }}
-                source={require('../../../assets/icons/icon_close.png')}
-              />
-            </TouchableWithoutFeedback>
-            <Image
-              style={{
-                width: Dimensions.get('window').width / 1.2,
-                height: Dimensions.get('window').height / 1.22,
-                resizeMode: 'contain',
-              }}
-              source={{
-                uri:
-                  this.props.zoomPhoto === true
-                    ? this.props.navigation.state.params.linkToPhoto
-                    : this.state.openedGalleryPhoto,
-              }}
-            />
-          </View>
-        </Modal>
+        <MenuBackgroundImage />
 
+        <PhotoModal
+          zoomPhoto={this.props.zoomPhoto}
+          isModalVisible={this.state.isModalVisible}
+          unzoom={this.unzoom}
+          openedGalleryPhoto={this.state.openedGalleryPhoto}
+          linkToPhoto={
+            this.props.navigation.state.params !== undefined
+              ? this.props.navigation.state.params.linkToPhoto
+              : undefined
+          }
+        />
         <FlatList
           keyExtractor={(item, index) => index}
           data={photos}
-          contentContainerStyle={{ paddingBottom:1240*parseInt(photos.length/photosStyles.length)+photosStyles[photos.length% photosStyles.length].top+photosStyles[photos.length% photosStyles.length].height }}
+          contentContainerStyle={{
+            paddingBottom:
+              1240 * parseInt(photos.length / photosStyles.length) +
+              photosStyles[photos.length % photosStyles.length].top +
+              photosStyles[photos.length % photosStyles.length].height,
+          }}
           renderItem={({item, index}) => (
             <TouchableWithoutFeedback
               onPress={() => this.openGalleryPhoto(item)}>
@@ -127,7 +113,7 @@ class Gallery extends Component {
                 style={[
                   {position: 'absolute'},
                   photosStyles[index % photosStyles.length],
-                  {top:this.calculateImageTop(index)}
+                  {top: this.calculateImageTop(index)},
                 ]}
                 source={{uri: item}}
               />

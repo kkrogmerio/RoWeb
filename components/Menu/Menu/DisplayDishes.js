@@ -77,7 +77,7 @@ class DisplayDishes extends Component {
     let filteredCategories = categories
       .filter(ie => ie.groupIds.includes(this.props.groupId))
       .filter(ie => categoriesId.includes(ie.id));
-    filteredCategories.map(ie => console.log(ie.id));
+  
 
     let selectedCategory = filteredCategories[0].id;
     let filteredDishes = dishes.filter(ie =>
@@ -93,7 +93,7 @@ class DisplayDishes extends Component {
     this.getGroupData();
   }
   render() {
-    console.log("HEEER")
+ 
     return (
       <View style={styles.dishesPanel}>
        <MenuBackgroundImage/>

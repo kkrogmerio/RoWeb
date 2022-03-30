@@ -9,7 +9,7 @@ class Logout extends Component {
   }
 
   render() {
-      console.log(this.props)
+     
     return (
       <View>
         <Text> Logout </Text>

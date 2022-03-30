@@ -24,7 +24,7 @@ export default class Branches extends Component {
     };
   }
   switchMapViewLocation = (latitude, longitude) => {
-    console.log(latitude, longitude);
+
 
     this.setState(prevState => {
       let region = Object.assign({}, prevState.region);

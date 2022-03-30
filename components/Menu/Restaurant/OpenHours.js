@@ -18,7 +18,7 @@ export default class OpenHours extends Component {
     </View>)
   }
   render() {
-    console.log(this.props.program,'programuu')
+  
     return (
       <View style={styles.cardStyle}>
          <Text style={styles.titleStyle}> Open Hours </Text>

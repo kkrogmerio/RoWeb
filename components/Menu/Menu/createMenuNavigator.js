@@ -13,7 +13,7 @@ export default function createMenuNavigator(routeConfigMap, stackConfig = {}) {
 
     setRoute = (prevState, nextState) => {
       const route = nextState.routes[nextState.index].routeName;
-      console.log(this.props.navigation);
+    
       this.setState({route: route});
     };
 

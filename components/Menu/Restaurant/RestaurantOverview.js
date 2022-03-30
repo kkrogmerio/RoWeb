@@ -10,7 +10,7 @@ export default class RestaurantOverview extends Component {
   }
 
   render() {
-    console.log(this.props.restaurantName, 'malogo');
+ 
     return (
       <View
         style={{flex: 1, backgroundColor: 'red', justifyContent: 'flex-end',borderRadius:5,overflow: 'hidden'}}>

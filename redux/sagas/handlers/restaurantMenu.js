@@ -39,7 +39,7 @@ export function* handleGetMenu(data) {
   
     yield put({type: SET_RESTAURANT_MENU, menuData});
   } catch (error) {
-    console.log(error.message);
+ 
   }
 }
 function parseGroups(group) {
