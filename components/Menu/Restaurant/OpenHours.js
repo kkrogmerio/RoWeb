@@ -32,7 +32,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#21212b',
     borderRadius: 5,
-    overflow: 'hidden',
+    shadowColor: "rgba(0,0,0,1)",
+    shadowOffset: {
+      width: 7.5,
+      height: 16,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 16.00,
     padding:16
   },
   titleStyle: {color: '#fff', fontSize: 25,marginBottom:15},

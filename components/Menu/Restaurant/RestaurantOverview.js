@@ -13,9 +13,15 @@ export default class RestaurantOverview extends Component {
  
     return (
       <View
-        style={{flex: 1, backgroundColor: 'red', justifyContent: 'flex-end',borderRadius:5,overflow: 'hidden'}}>
+        style={{flex: 1, justifyContent: 'flex-end',borderRadius:5,shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+          width: 7.5,
+          height: 16,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 16.00,}}>
         <FastImage
-          style={{width: '100%', height: '100%', position: 'absolute'}}
+          style={{width: '100%', height: '100%', position: 'absolute',borderRadius:5}}
           source={{
             uri:
               'https://firebasestorage.googleapis.com/v0/b/nextbite-newplatform.appspot.com/o/about-us%2F1_1552483913_cover.jpg?alt=media',

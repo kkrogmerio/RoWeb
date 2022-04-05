@@ -106,7 +106,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#21212b',
     borderRadius: 5,
-    overflow: 'hidden',
+   
+    shadowColor: "rgba(0,0,0,1)",
+    shadowOffset: {
+      width: 7.5,
+      height: 16,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 16.00,
   },
   noMapAreaStyle: {flex: 1.7, paddingTop: 15, paddingLeft: 15},
   titleStyle: {color: colors.white, fontSize: 25},

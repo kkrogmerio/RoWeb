@@ -50,6 +50,7 @@ class Gallery extends Component {
       openedGalleryPhoto: undefined,
     };
   }
+  
   renderPhotos = () => {
     return this.props.photos.map(ie => (
       <FastImage style={{width: 300, height: 300}} source={{uri: ie}} />
@@ -81,7 +82,8 @@ class Gallery extends Component {
     this.setState({isModalVisible: false});
   };
   render() {
-    let photos = this.props.photos.reverse();
+   
+    let photos = [...this.props.photos,...this.props.photos.slice(0,3)];
     return (
       <View style={{flex: 1}}>
         <MenuBackgroundImage />
@@ -103,8 +105,8 @@ class Gallery extends Component {
           contentContainerStyle={{
             paddingBottom:
               1240 * parseInt(photos.length / photosStyles.length) +
-              photosStyles[photos.length % photosStyles.length].top +
-              photosStyles[photos.length % photosStyles.length].height,
+              photosStyles[photos.length % photosStyles.length-1].top +
+              photosStyles[photos.length % photosStyles.length-1].height,
           }}
           renderItem={({item, index}) => (
             <TouchableWithoutFeedback

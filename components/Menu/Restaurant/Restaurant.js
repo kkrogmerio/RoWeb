@@ -13,7 +13,7 @@ export default class Restaurant extends Component {
   
     return (
       <View style={{flex:1,flexDirection: 'row',padding:20}}>
-       <MenuBackgroundImage/>
+       {/* <MenuBackgroundImage/> */}
         <LeftAboutArea navigate={this.props.navigation.navigate}/>
         <View style={{marginHorizontal:10}}/>
         <RightAboutArea/>

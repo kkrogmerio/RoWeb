@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {MENU} from '../../constants/strings';
-import colors from '../../constants/colors';
+
 import fontStyle from '../../constants/fontStyle';
 import {SET_MENU_CURRENT_GROUP} from '../../redux/reducers/restaurantMenu';
 const TAB_MENU='Menu';

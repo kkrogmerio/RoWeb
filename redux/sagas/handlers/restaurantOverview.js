@@ -9,7 +9,7 @@ export function* handleGetOverview(data) {
     if (data.payload !== undefined) response = data.payload;
     else response = yield call(requestGetOverview);
     response = response.val();
-    console.log(response);
+d
     let branches = [];
     let n = 0;
     for (let branch of response.branches) {
@@ -19,7 +19,7 @@ export function* handleGetOverview(data) {
     let connect = parseConnect(response.connect);
     let photos = [];
     for (let photo of response.photos) {
-      console.log(photo);
+   d
       photos.push(photo);
     }
     let programs = [];

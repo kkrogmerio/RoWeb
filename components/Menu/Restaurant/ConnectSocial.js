@@ -24,6 +24,7 @@ export default class ConnectSocial extends Component {
   render() {
   
     return (
+      <View style={styles.cardShadowStyle}>
       <View style={styles.cardStyle}>
         
           <Text style={styles.titleStyle}> Connect {'\n'} </Text>
@@ -38,16 +39,29 @@ export default class ConnectSocial extends Component {
           {this.renderSocialmedia(require(ICON_PATH+'icon_twitter.png'),this.props.socialmedia.twitter)}
           {this.renderSocialmedia(require(ICON_PATH+'icon_youtube.png'),this.props.socialmedia.youtube)}
       </View>
+      </View>
     );
   }
 }
 const styles = StyleSheet.create({
   titleStyle: {color: '#fff', fontSize: 25},
+  cardShadowStyle: {shadowColor: "rgba(0,0,0,1)",
+  shadowOffset: {
+    width: 7.5,
+    height: 16,
+  },
+  shadowOpacity: 0.58,
+  shadowRadius: 16.00,
+flex:2},
   cardStyle: {
     flex: 2,
     backgroundColor: '#21212b',
     borderRadius: 5,
-    overflow: 'hidden',
-    padding:12
+    // overflow: 'hidden',
+   
+    padding:12,
+    
+    
   },
+  
 })
